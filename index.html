@@ -82,7 +82,7 @@
       <h1>Earnings Calendar</h1>
       <p class="sub">Your watchlist, sorted by soonest upcoming earnings · all times after market close (AMC)</p>
     </div>
-    <div class="updated">Data updated<br><b id="refreshed">2 Jun 2026, 18:22 KUL</b><br><span style="font-size:11px">prices ~every 2h · dates daily</span></div>
+    <div class="updated">Data updated<br><b id="refreshed">2 Jun 2026, 18:55 KUL</b><br><span style="font-size:11px">prices ~every 2h · dates daily</span></div>
   </header>
 
   <div class="manage">
@@ -150,12 +150,12 @@
 const DATA = [
   {t:"PANW", c:"Palo Alto Networks", s:"Cybersecurity", d:"2026-06-02", conf:true, fq:"Q3 FY26", et:"4:30 PM", px:300.48, chg:6.67, ytd:63.13, vol:48.8, sup:139.57, res:302.95, hi6:302.95, ath:false},
   {t:"AVGO", c:"Broadcom", s:"Semiconductor", d:"2026-06-03", conf:true, fq:"Q2 FY26", et:"5:00 PM", px:459.97, chg:2.95, ytd:33.18, vol:41.7, sup:289.96, res:466.05, hi6:466.05, ath:false},
-  {t:"CRWD", c:"CrowdStrike", s:"Cybersecurity", d:"2026-06-03", conf:false, fq:"Q1 FY27", et:"", px:782.17, chg:7.0, ytd:66.86, vol:51.4, sup:342.72, res:785.66, hi6:785.66, ath:false},
-  {t:"HPE", c:"Hewlett Packard Ent.", s:"Server Hardware", d:"2026-06-03", conf:false, fq:"Q2 FY26", et:"", px:47.0, chg:9.2, ytd:96.93, vol:55.5, sup:19.71, res:47.97, hi6:47.97, ath:false},
-  {t:"ADBE", c:"Adobe", s:"Enterprise SaaS", d:"2026-06-11", conf:false, fq:"Q2 FY26", et:"", px:274.03, chg:5.72, ytd:-21.7, vol:43.8, sup:224.13, res:362.71, hi6:362.71, ath:false},
-  {t:"ORCL", c:"Oracle", s:"Server Hardware", d:"2026-06-16", conf:false, fq:"Q4 FY26", et:"", px:248.15, chg:9.91, ytd:28.1, vol:59.0, sup:134.57, res:250.25, hi6:250.25, ath:false},
+  {t:"CRWD", c:"CrowdStrike", s:"Cybersecurity", d:"2026-06-03", conf:true, fq:"Q1 FY27", et:"5:00 PM", px:782.17, chg:7.0, ytd:66.86, vol:51.4, sup:342.72, res:785.66, hi6:785.66, ath:false},
+  {t:"HPE", c:"Hewlett Packard Ent.", s:"Server Hardware", d:"2026-09-02", conf:false, fq:"Q3 FY26", et:"", px:47.0, chg:9.2, ytd:96.93, vol:55.5, sup:19.71, res:47.97, hi6:47.97, ath:false},
+  {t:"ADBE", c:"Adobe", s:"Enterprise SaaS", d:"2026-06-11", conf:true, fq:"Q2 FY26", et:"5:00 PM", px:274.03, chg:5.72, ytd:-21.7, vol:43.8, sup:224.13, res:362.71, hi6:362.71, ath:false},
+  {t:"ORCL", c:"Oracle", s:"Server Hardware", d:"2026-06-10", conf:true, fq:"Q4 FY26", et:"5:00 PM", px:248.15, chg:9.91, ytd:28.1, vol:59.0, sup:134.57, res:250.25, hi6:250.25, ath:false},
   {t:"MU", c:"Micron Technology", s:"Semiconductor", d:"2026-06-24", conf:true, fq:"Q3 FY26", et:"4:30 PM", px:1035.5, chg:6.64, ytd:262.96, vol:84.9, sup:221.51, res:1046.97, hi6:1046.97, ath:false},
-  {t:"TSM", c:"Taiwan Semiconductor", s:"Semiconductor", d:"2026-07-16", conf:false, fq:"Q2 2026", et:"", px:435.63, chg:4.11, ytd:43.75, vol:42.7, sup:274.32, res:449.39, hi6:449.39, ath:false},
+  {t:"TSM", c:"Taiwan Semiconductor", s:"Semiconductor", d:"2026-07-16", conf:true, fq:"Q2 2026", et:"", px:435.63, chg:4.11, ytd:43.75, vol:42.7, sup:274.32, res:449.39, hi6:449.39, ath:false},
   {t:"IBM", c:"IBM", s:"Server Hardware", d:"2026-07-22", conf:true, fq:"Q2 2026", et:"5:00 PM", px:320.42, chg:7.6, ytd:9.59, vol:48.5, sup:212.34, res:327.98, hi6:327.98, ath:false},
   {t:"NOW", c:"ServiceNow", s:"Enterprise SaaS", d:"2026-07-22", conf:false, fq:"Q2 2026", et:"", px:135.86, chg:9.24, ytd:-11.31, vol:74.9, sup:81.24, res:175.0, hi6:175.0, ath:false},
   {t:"INTC", c:"Intel", s:"Semiconductor", d:"2026-07-23", conf:false, fq:"Q2 2026", et:"", px:109.33, chg:-4.67, ytd:196.29, vol:85.8, sup:34.95, res:132.75, hi6:132.75, ath:false},
@@ -181,6 +181,7 @@ const DATA = [
   {t:"DELL", c:"Dell Technologies", s:"Server Hardware", d:"2026-09-03", conf:false, fq:"Q2 FY27", et:"", px:465.96, chg:10.7, ytd:272.93, vol:85.7, sup:109.88, res:469.47, hi6:469.47, ath:false},
   {t:"PATH", c:"UiPath", s:"Enterprise SaaS", d:"2026-09-03", conf:false, fq:"Q2 FY27", et:"", px:13.1, chg:11.77, ytd:-20.07, vol:59.8, sup:9.2, res:19.84, hi6:19.84, ath:false},
   {t:"ZS", c:"Zscaler", s:"Cybersecurity", d:"2026-09-08", conf:true, fq:"Q4 FY26", et:"4:30 PM", px:155.71, chg:11.44, ytd:-30.77, vol:99.4, sup:114.62, res:249.64, hi6:249.64, ath:false},
+  {t:"QCOM", c:"Qualcomm", s:"Semiconductor", d:"2026-07-29", conf:false, fq:"Q3 FY26", et:"", px:228.99, chg:-8.78, ytd:34.73, vol:69.5, sup:121.99, res:259.92, hi6:259.92, ath:false},
 ];
 
 const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -335,6 +336,9 @@ document.getElementById("dlBtn").addEventListener("click",()=>{
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="watchlist.txt";
   document.body.appendChild(a);a.click();a.remove();
 });
+
+// auto-refresh so the page always shows the latest published data
+setTimeout(function(){location.reload();}, 15*60*1000);
 
 render("all");
 </script>
