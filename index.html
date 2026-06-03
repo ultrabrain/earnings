@@ -82,7 +82,7 @@
       <h1>Earnings Calendar</h1>
       <p class="sub">Your watchlist, sorted by soonest upcoming earnings · all times after market close (AMC)</p>
     </div>
-    <div class="updated">Prices as of<br><b id="refreshed">2 Jun 2026 close · synced 3 Jun 10:47 KUL</b><br><span style="font-size:11px">prices ~every 2h · dates daily</span></div>
+    <div class="updated">Prices as of<br><b id="refreshed">2 Jun 2026 close · synced 3 Jun 15:58 KUL</b><br><span style="font-size:11px">prices ~every 2h · dates daily</span></div>
   </header>
 
   <div class="manage">
@@ -182,6 +182,12 @@ const DATA = [
   {t:"PATH", c:"UiPath", s:"Enterprise SaaS", d:"2026-09-03", conf:false, fq:"Q2 FY27", et:"", px:12.18, chg:-7.02, ytd:-25.69, vol:61.5, sup:9.2, res:19.84, hi6:19.84, ath:false},
   {t:"ZS", c:"Zscaler", s:"Cybersecurity", d:"2026-09-08", conf:true, fq:"Q4 FY26", et:"4:30 PM", px:144.15, chg:-7.42, ytd:-35.91, vol:100.3, sup:114.62, res:249.64, hi6:249.64, ath:false},
   {t:"QCOM", c:"Qualcomm", s:"Semiconductor", d:"2026-08-05", conf:false, fq:"Q3 FY26", et:"", px:240.84, chg:5.17, ytd:41.7, vol:69.8, sup:121.99, res:259.92, hi6:259.92, ath:false},
+  {t:"DDOG", c:"Datadog", s:"Enterprise SaaS", d:"2026-08-06", conf:false, fq:"Q2 2026", et:"", px:269.13, chg:-3.01, ytd:97.9, vol:76.2, sup:98.01, res:278.7, hi6:278.7, ath:false},
+  {t:"NET", c:"Cloudflare", s:"Cybersecurity", d:"2026-07-30", conf:true, fq:"Q2 2026", et:"", px:272.66, chg:0.68, ytd:38.3, vol:86.9, sup:158.83, res:274.63, hi6:274.63, ath:false},
+  {t:"TEAM", c:"Atlassian", s:"Enterprise SaaS", d:"2026-07-31", conf:false, fq:"Q4 FY26", et:"", px:109.1, chg:-5.91, ytd:-32.71, vol:88.8, sup:56.01, res:166.48, hi6:166.48, ath:false},
+  {t:"INTU", c:"Intuit", s:"Enterprise SaaS", d:"2026-08-20", conf:false, fq:"Q4 FY26", et:"", px:322.14, chg:-8.94, ytd:-51.13, vol:69.8, sup:300.5, res:677.85, hi6:677.85, ath:false},
+  {t:"SHOP", c:"Shopify", s:"Enterprise SaaS", d:"2026-08-05", conf:false, fq:"Q2 2026", et:"", px:117.01, chg:-5.73, ytd:-27.31, vol:64.9, sup:94.0, res:172.98, hi6:172.98, ath:false},
+  {t:"HUBS", c:"HubSpot", s:"Enterprise SaaS", d:"2026-08-05", conf:false, fq:"Q2 2026", et:"", px:240.16, chg:-8.41, ytd:-40.15, vol:85.2, sup:173.25, res:406.94, hi6:406.94, ath:false},
 ];
 
 const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -224,7 +230,7 @@ function getWatch(){try{const v=JSON.parse(localStorage.getItem(LS_KEY));if(Arra
 function setWatch(a){try{localStorage.setItem(LS_KEY,JSON.stringify(a));}catch(e){}}
 function getNames(){try{return JSON.parse(localStorage.getItem(NM_KEY))||{};}catch(e){return {};}}
 function saveName(s,n){const m=getNames();m[s]=n;try{localStorage.setItem(NM_KEY,JSON.stringify(m));}catch(e){}}
-function removeTicker(t){setWatch(getWatch().filter(x=>x!==t));}
+function removeTicker(t){setWatch(getWatch().filter(x=>x!==t));pushSync();}
 
 const DASH='<span style="color:var(--muted)">—</span>';
 function rm(t){return `<span class="rm" data-rm="${t}" title="Remove ${t}">✕</span>`;}
@@ -312,7 +318,7 @@ function tryAdd(raw){
   const r=resolveInput(raw);
   if(!r.ok){if(r.msg)feedback(r.msg,"var(--red)");return;}
   if(getWatch().includes(r.sym)){feedback(`${r.sym} (${r.name}) is already in your list.`,"var(--amber)");return;}
-  const w=getWatch();w.push(r.sym);setWatch(w);saveName(r.sym,r.name);
+  const w=getWatch();w.push(r.sym);setWatch(w);saveName(r.sym,r.name);pushSync();
   feedback(`Added ${r.sym} — ${r.name}. It will show under “Pending” until the next data refresh.`,"var(--green)");
   const inp=document.getElementById("newTkr");inp.value="";renderSuggest("");
   render(curFilter);
@@ -330,18 +336,35 @@ document.getElementById("suggest").addEventListener("click",e=>{const r=e.target
 document.getElementById("toggleManage").addEventListener("click",()=>document.getElementById("chips").classList.toggle("hidden"));
 document.getElementById("chips").addEventListener("click",e=>{const r=e.target.closest("[data-rm]");if(!r)return;removeTicker(r.getAttribute("data-rm"));render(curFilter);});
 document.getElementById("rows").addEventListener("click",e=>{const r=e.target.closest("[data-rm]");if(!r)return;removeTicker(r.getAttribute("data-rm"));render(curFilter);});
-document.getElementById("resetBtn").addEventListener("click",()=>{if(confirm("Reset watchlist to the full default list?")){setWatch(defaultWatch());render(curFilter);}});
+document.getElementById("resetBtn").addEventListener("click",()=>{if(confirm("Reset watchlist to the full default list?")){setWatch(defaultWatch());pushSync();render(curFilter);}});
 document.getElementById("dlBtn").addEventListener("click",()=>{
   const blob=new Blob([getWatch().slice().sort().join("\n")+"\n"],{type:"text/plain"});
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="watchlist.txt";
   document.body.appendChild(a);a.click();a.remove();
 });
 
+/* ---- cross-device sync via a Cloudflare Worker (SYNC_URL is filled in once the Worker exists) ---- */
+const SYNC_URL = "https://earnings-watchlist.justin-d02.workers.dev/";
+function syncOn(){return SYNC_URL && SYNC_URL.indexOf("__")!==0;}
+async function pullSync(){
+  if(!syncOn())return;
+  try{const r=await fetch(SYNC_URL,{cache:"no-store"});const t=await r.text();
+    const list=t.split(/\s+/).map(x=>x.trim().toUpperCase()).filter(Boolean);
+    if(list.length){const cur=getWatch().slice().sort();
+      if(JSON.stringify(list.slice().sort())!==JSON.stringify(cur)){setWatch(list);render(curFilter);}}
+  }catch(e){}
+}
+async function pushSync(){
+  if(!syncOn())return;
+  try{await fetch(SYNC_URL,{method:"POST",body:getWatch().join("\n")});}catch(e){}
+}
+
 // auto-refresh so the page always shows the latest published data
 setTimeout(function(){location.reload();}, 15*60*1000);
 
 render("all");
+pullSync();
+setInterval(pullSync,30000);
 </script>
 </body>
 </html>
-       
