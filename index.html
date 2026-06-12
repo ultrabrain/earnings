@@ -82,7 +82,7 @@
       <h1>Earnings Calendar</h1>
       <p class="sub">Your watchlist, sorted by soonest upcoming earnings · all times after market close (AMC)</p>
     </div>
-    <div class="updated">Prices as of<br><b id="refreshed">9 Jun 2026 close · synced 10 Jun 07:21 KUL</b><br><span style="font-size:11px">prices ~every 2h · dates daily</span></div>
+    <div class="updated">Prices as of<br><b id="refreshed">9 Jun 2026 close · synced 10 Jun 07:26 KUL</b><br><span style="font-size:11px">prices ~every 2h · dates daily</span></div>
   </header>
 
   <div class="manage">
@@ -144,51 +144,9 @@
   </footer>
 </div>
 
+<script src="data.js"></script>
 <script>
-// Earnings data — refreshed daily by the scheduled task. Sorted in JS by date.
-// px = last price, chg = % change, ytd = YTD % — snapshot from PingBit watchlist (Jun 1, 2026)
-const DATA = [
-  {t:"PANW", c:"Palo Alto Networks", s:"Cybersecurity", d:"2026-08-17", conf:false, fq:"Q4 FY26", et:"", px:260.52, chg:-2.18, ytd:41.43, vol:51.6, sup:139.57, res:302.95, hi6:302.95, ath:false},
-  {t:"AVGO", c:"Broadcom", s:"Semiconductor", d:"2026-09-03", conf:true, fq:"Q3 FY26", et:"", px:392.16, chg:-1.12, ytd:13.55, vol:52.5, sup:289.96, res:495.0, hi6:495.0, ath:false},
-  {t:"CRWD", c:"CrowdStrike", s:"Cybersecurity", d:"2026-09-02", conf:true, fq:"Q2 FY27", et:"", px:644.93, chg:-2.1, ytd:37.58, vol:55.1, sup:342.72, res:785.66, hi6:785.66, ath:false},
-  {t:"HPE", c:"Hewlett Packard Ent.", s:"Server Hardware", d:"2026-09-02", conf:false, fq:"Q3 FY26", et:"", px:48.27, chg:-3.21, ytd:102.25, vol:67.6, sup:19.71, res:64.25, hi6:64.25, ath:false},
-  {t:"ADBE", c:"Adobe", s:"Enterprise SaaS", d:"2026-06-11", conf:true, fq:"Q2 FY26", et:"5:00 PM", px:237.88, chg:-2.9, ytd:-32.03, vol:44.4, sup:224.13, res:359.67, hi6:362.71, ath:false},
-  {t:"ORCL", c:"Oracle", s:"Server Hardware", d:"2026-06-10", conf:true, fq:"Q4 FY26", et:"5:00 PM", px:205.81, chg:-2.84, ytd:6.24, vol:64.6, sup:134.57, res:250.25, hi6:250.25, ath:false},
-  {t:"MU", c:"Micron Technology", s:"Semiconductor", d:"2026-06-24", conf:true, fq:"Q3 FY26", et:"4:30 PM", px:935.89, chg:-1.41, ytd:228.05, vol:89.6, sup:221.51, res:1089.29, hi6:1089.29, ath:false},
-  {t:"TSM", c:"Taiwan Semiconductor", s:"Semiconductor", d:"2026-07-16", conf:false, fq:"Q2 2026", et:"", px:427.92, chg:0.26, ytd:41.2, vol:43.5, sup:274.32, res:450.16, hi6:450.16, ath:false},
-  {t:"IBM", c:"IBM", s:"Server Hardware", d:"2026-07-22", conf:true, fq:"Q2 2026", et:"5:00 PM", px:277.49, chg:-1.19, ytd:-5.09, vol:52.1, sup:212.34, res:332.46, hi6:332.46, ath:false},
-  {t:"NOW", c:"ServiceNow", s:"Enterprise SaaS", d:"2026-07-29", conf:true, fq:"Q2 2026", et:"", px:106.97, chg:-6.32, ytd:-30.17, vol:77.9, sup:81.24, res:161.93, hi6:175.0, ath:false},
-  {t:"INTC", c:"Intel", s:"Semiconductor", d:"2026-07-23", conf:true, fq:"Q2 2026", et:"", px:107.92, chg:-2.13, ytd:192.47, vol:89.7, sup:34.95, res:132.75, hi6:132.75, ath:false},
-  {t:"MSFT", c:"Microsoft", s:"Hyperscaler", d:"2026-07-28", conf:true, fq:"Q4 FY26", et:"5:30 PM", px:403.41, chg:-2.02, ytd:-16.21, vol:31.3, sup:355.51, res:487.53, hi6:489.94, ath:false},
-  {t:"GOOG", c:"Alphabet", s:"Hyperscaler", d:"2026-07-22", conf:true, fq:"Q2 2026", et:"4:30 PM", px:362.29, chg:0.31, ytd:15.6, vol:34.4, sup:271.37, res:404.23, hi6:404.23, ath:false},
-  {t:"STX", c:"Seagate Technology", s:"Semiconductor", d:"2026-07-16", conf:false, fq:"Q4 FY26", et:"", px:846.01, chg:-3.51, ytd:207.74, vol:64.1, sup:273.51, res:966.8, hi6:966.8, ath:false},
-  {t:"META", c:"Meta Platforms", s:"Hyperscaler", d:"2026-07-29", conf:true, fq:"Q2 2026", et:"", px:584.59, chg:-0.14, ytd:-11.36, vol:43.0, sup:520.26, res:743.36, hi6:743.36, ath:false},
-  {t:"ARM", c:"Arm Holdings", s:"Semiconductor", d:"2026-07-29", conf:true, fq:"Q1 FY27", et:"", px:324.86, chg:-6.22, ytd:197.19, vol:100.6, sup:100.02, res:427.99, hi6:427.99, ath:false},
-  {t:"AMZN", c:"Amazon", s:"Hyperscaler", d:"2026-07-30", conf:false, fq:"Q2 2026", et:"", px:244.19, chg:-0.42, ytd:5.79, vol:29.6, sup:196.0, res:278.56, hi6:278.56, ath:false},
-  {t:"AMD", c:"Advanced Micro Devices", s:"Semiconductor", d:"2026-08-04", conf:true, fq:"Q2 2026", et:"5:00 PM", px:475.5, chg:-3.02, ytd:122.03, vol:74.0, sup:188.22, res:546.44, hi6:546.44, ath:false},
-  {t:"WDC", c:"Western Digital", s:"Semiconductor", d:"2026-08-05", conf:false, fq:"Q4 FY26", et:"", px:517.72, chg:-1.75, ytd:200.75, vol:68.1, sup:165.35, res:602.38, hi6:602.38, ath:false},
-  {t:"FTNT", c:"Fortinet", s:"Cybersecurity", d:"2026-08-12", conf:true, fq:"Q2 2026", et:"", px:138.39, chg:-3.25, ytd:74.27, vol:53.7, sup:73.55, res:150.07, hi6:150.07, ath:false},
-  {t:"PLTR", c:"Palantir", s:"Cybersecurity", d:"2026-08-10", conf:true, fq:"Q2 2026", et:"5:00 PM", px:132.07, chg:-3.22, ytd:-25.7, vol:55.9, sup:122.68, res:198.88, hi6:198.88, ath:false},
-  {t:"APP", c:"AppLovin", s:"Enterprise SaaS", d:"2026-08-12", conf:true, fq:"Q2 2026", et:"", px:520.84, chg:-7.6, ytd:-22.7, vol:66.0, sup:359.0, res:738.01, hi6:738.01, ath:false},
-  {t:"SNDK", c:"SanDisk", s:"Semiconductor", d:"2026-08-13", conf:false, fq:"Q4 FY26", et:"", px:1646.54, chg:0.28, ytd:593.63, vol:93.6, sup:199.5, res:1861.0, hi6:1861.0, ath:false},
-  {t:"FIG", c:"Figma", s:"Enterprise SaaS", d:"2026-08-18", conf:false, fq:"Q2 2026", et:"", px:20.49, chg:-2.89, ytd:-45.17, vol:81.5, sup:16.6, res:40.18, hi6:40.28, ath:false},
-  {t:"WDAY", c:"Workday", s:"Enterprise SaaS", d:"2026-08-20", conf:true, fq:"Q2 FY27", et:"", px:140.23, chg:-2.46, ytd:-34.71, vol:59.3, sup:110.36, res:224.97, hi6:226.83, ath:false},
-  {t:"NVDA", c:"NVIDIA", s:"Semiconductor", d:"2026-08-26", conf:true, fq:"Q2 FY27", et:"5:00 PM", px:208.19, chg:-0.22, ytd:11.77, vol:39.3, sup:164.08, res:236.26, hi6:236.26, ath:false},
-  {t:"SNOW", c:"Snowflake", s:"Enterprise SaaS", d:"2026-08-26", conf:false, fq:"Q2 FY27", et:"", px:239.66, chg:-0.33, ytd:9.25, vol:90.9, sup:118.3, res:284.99, hi6:284.99, ath:false},
-  {t:"MDB", c:"MongoDB", s:"Enterprise SaaS", d:"2026-08-27", conf:true, fq:"Q2 FY27", et:"", px:340.28, chg:-3.48, ytd:-18.92, vol:71.1, sup:215.68, res:444.72, hi6:444.72, ath:false},
-  {t:"CRM", c:"Salesforce", s:"Enterprise SaaS", d:"2026-09-02", conf:false, fq:"Q2 FY27", et:"", px:175.35, chg:-3.94, ytd:-33.64, vol:49.6, sup:163.52, res:268.44, hi6:268.44, ath:false},
-  {t:"OKTA", c:"Okta", s:"Cybersecurity", d:"2026-09-02", conf:true, fq:"Q2 FY27", et:"", px:119.96, chg:2.66, ytd:38.73, vol:81.8, sup:62.66, res:142.35, hi6:142.35, ath:false},
-  {t:"DELL", c:"Dell Technologies", s:"Server Hardware", d:"2026-09-03", conf:true, fq:"Q2 FY27", et:"4:30 PM", px:381.78, chg:-4.74, ytd:205.56, vol:88.9, sup:109.88, res:469.47, hi6:469.47, ath:false},
-  {t:"PATH", c:"UiPath", s:"Enterprise SaaS", d:"2026-09-03", conf:true, fq:"Q2 FY27", et:"", px:10.75, chg:-3.76, ytd:-34.41, vol:61.8, sup:9.2, res:17.94, hi6:19.56, ath:false},
-  {t:"ZS", c:"Zscaler", s:"Cybersecurity", d:"2026-09-08", conf:true, fq:"Q4 FY26", et:"4:30 PM", px:125.84, chg:-2.64, ytd:-44.05, vol:100.9, sup:114.62, res:237.67, hi6:245.12, ath:false},
-  {t:"QCOM", c:"Qualcomm", s:"Semiconductor", d:"2026-08-05", conf:true, fq:"Q3 FY26", et:"", px:205.42, chg:-5.67, ytd:21.31, vol:75.4, sup:121.54, res:258.96, hi6:258.96, ath:false},
-  {t:"DDOG", c:"Datadog", s:"Enterprise SaaS", d:"2026-08-06", conf:true, fq:"Q2 2026", et:"", px:227.34, chg:-1.87, ytd:67.17, vol:78.0, sup:98.01, res:278.7, hi6:278.7, ath:false},
-  {t:"NET", c:"Cloudflare", s:"Cybersecurity", d:"2026-07-30", conf:true, fq:"Q2 2026", et:"", px:236.13, chg:-4.71, ytd:19.77, vol:88.3, sup:158.83, res:276.81, hi6:276.81, ath:false},
-  {t:"TEAM", c:"Atlassian", s:"Enterprise SaaS", d:"2026-07-31", conf:false, fq:"Q4 FY26", et:"", px:95.61, chg:-2.33, ytd:-41.03, vol:88.5, sup:56.01, res:166.48, hi6:166.48, ath:false},
-  {t:"INTU", c:"Intuit", s:"Enterprise SaaS", d:"2026-08-20", conf:true, fq:"Q4 FY26", et:"", px:293.78, chg:-3.84, ytd:-55.43, vol:68.8, sup:291.18, res:675.92, hi6:677.85, ath:false},
-  {t:"SHOP", c:"Shopify", s:"Enterprise SaaS", d:"2026-07-29", conf:true, fq:"Q2 2026", et:"", px:110.42, chg:-0.32, ytd:-31.4, vol:64.0, sup:94.0, res:172.98, hi6:172.98, ath:false},
-  {t:"HUBS", c:"HubSpot", s:"Enterprise SaaS", d:"2026-08-05", conf:true, fq:"Q2 2026", et:"", px:197.69, chg:-5.01, ytd:-50.74, vol:85.5, sup:173.25, res:406.94, hi6:406.94, ath:false},
-];
+const DATA = (window.EC && window.EC.DATA) || [];
 
 const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 function parse(d){const[y,m,dd]=String(d).split("-").map(Number);return new Date(y,m-1,dd);}
@@ -351,4 +309,21 @@ async function pullSync(){
   try{const r=await fetch(SYNC_URL,{cache:"no-store"});const t=await r.text();
     const list=t.split(/\s+/).map(x=>x.trim().toUpperCase()).filter(Boolean);
     if(list.length){const cur=getWatch().slice().sort();
-      if(JSON.stringify(list.slice().sort())!==JSON.stringify(cur)){setWatch(lis           
+      if(JSON.stringify(list.slice().sort())!==JSON.stringify(cur)){setWatch(list);render(curFilter);}}
+  }catch(e){}
+}
+async function pushSync(){
+  if(!syncOn())return;
+  try{await fetch(SYNC_URL,{method:"POST",body:getWatch().join("\n")});}catch(e){}
+}
+
+(function(){var s=(window.EC&&window.EC.STAMP);if(s){var el=document.getElementById("refreshed");if(el)el.textContent=s;}})();
+
+setTimeout(function(){location.reload();}, 15*60*1000);
+
+render("all");
+pullSync();
+setInterval(pullSync,30000);
+</script>
+</body>
+</html>
