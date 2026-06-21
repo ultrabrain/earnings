@@ -1,5 +1,5 @@
 window.EC = {
-  STAMP: "18 Jun 2026 close · synced 20 Jun 05:00 KUL",
+  STAMP: "18 Jun 2026 close · synced 21 Jun 12:27 KUL",
   DATA: [
   {t:"PANW", c:"Palo Alto Networks", s:"Cybersecurity", d:"2026-08-17", conf:false, fq:"Q4 FY26", et:"", px:287.78, chg:2.0, ytd:56.23, vol:52.7, sup:139.57, res:302.95, hi6:302.95, ath:false},
   {t:"AVGO", c:"Broadcom", s:"Semiconductor", d:"2026-09-03", conf:true, fq:"Q3 FY26", et:"", px:411.35, chg:4.7, ytd:19.1, vol:55.3, sup:289.96, res:495.0, hi6:495.0, ath:false},
@@ -31,7 +31,7 @@ window.EC = {
   {t:"MDB", c:"MongoDB", s:"Enterprise SaaS", d:"2026-08-27", conf:true, fq:"Q2 FY27", et:"", px:332.75, chg:-0.58, ytd:-20.72, vol:71.8, sup:215.68, res:444.72, hi6:444.72, ath:false},
   {t:"CRM", c:"Salesforce", s:"Enterprise SaaS", d:"2026-08-26", conf:true, fq:"Q2 FY27", et:"", px:151.78, chg:-2.09, ytd:-42.41, vol:49.6, sup:149.8, res:267.75, hi6:267.75, ath:false},
   {t:"OKTA", c:"Okta", s:"Cybersecurity", d:"2026-09-02", conf:true, fq:"Q2 FY27", et:"", px:117.81, chg:4.23, ytd:36.24, vol:82.6, sup:62.66, res:142.35, hi6:142.35, ath:false},
-  {t:"DELL", c:"Dell Technologies", s:"Server Hardware", d:"2026-09-03", conf:false, fq:"Q2 FY27", et:"4:30 PM", px:409.5, chg:-2.34, ytd:227.74, vol:89.5, sup:109.88, res:469.47, hi6:469.47, ath:false},
+  {t:"DELL", c:"Dell Technologies", s:"Server Hardware", d:"2026-09-03", conf:true, fq:"Q2 FY27", et:"4:30 PM", px:409.5, chg:-2.34, ytd:227.74, vol:89.5, sup:109.88, res:469.47, hi6:469.47, ath:false},
   {t:"PATH", c:"UiPath", s:"Enterprise SaaS", d:"2026-09-03", conf:false, fq:"Q2 FY27", et:"", px:10.27, chg:0.39, ytd:-37.34, vol:57.3, sup:9.2, res:17.94, hi6:17.94, ath:false},
   {t:"ZS", c:"Zscaler", s:"Cybersecurity", d:"2026-09-08", conf:true, fq:"Q4 FY26", et:"4:30 PM", px:124.85, chg:0.38, ytd:-44.49, vol:101.1, sup:114.62, res:234.93, hi6:234.93, ath:false},
   {t:"QCOM", c:"Qualcomm", s:"Semiconductor", d:"2026-08-05", conf:true, fq:"Q3 FY26", et:"", px:226.11, chg:6.17, ytd:33.53, vol:79.1, sup:121.54, res:258.96, hi6:258.96, ath:false},
