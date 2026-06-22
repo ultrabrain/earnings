@@ -144,9 +144,8 @@
   </footer>
 </div>
 
-<script src="data.js"></script>
 <script>
-const DATA = (window.EC && window.EC.DATA) || [];
+let DATA = [];
 
 const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 function parse(d){const[y,m,dd]=String(d).split("-").map(Number);return new Date(y,m-1,dd);}
@@ -317,13 +316,17 @@ async function pushSync(){
   try{await fetch(SYNC_URL,{method:"POST",body:getWatch().join("\n")});}catch(e){}
 }
 
-(function(){var s=(window.EC&&window.EC.STAMP);if(s){var el=document.getElementById("refreshed");if(el)el.textContent=s;}})();
-
 setTimeout(function(){location.reload();}, 15*60*1000);
 
-render("all");
-pullSync();
-setInterval(pullSync,30000);
+(async function init(){
+  try{const r=await fetch("data.js?cb="+Date.now(),{cache:"no-store"});const t=await r.text();(0,eval)(t);}catch(e){}
+  DATA=(window.EC&&window.EC.DATA)||[];
+  DATA.forEach(x=>{if(!(x.t in UMAP)){UMAP[x.t]=x.c||x.t;U.push([x.t,x.c||x.t]);}});
+  const st=(window.EC&&window.EC.STAMP);if(st){const el=document.getElementById("refreshed");if(el)el.textContent=st;}
+  render("all");
+  pullSync();
+  setInterval(pullSync,30000);
+})();
 </script>
 </body>
 </html>
