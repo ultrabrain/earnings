@@ -92,6 +92,7 @@
       <button id="toggleManage" class="ghost">Manage list</button>
       <button id="dlBtn" class="ghost">&#8595; Save watchlist.txt</button>
       <button id="resetBtn" class="ghost">Reset</button>
+      <button id="refreshNowBtn" class="ghost" title="Regenerate prices &amp; earnings dates now (needs the laptop listener running)">&#8635; Refresh now</button>
       <span class="hint" id="wcount"></span>
     </div>
     <div id="suggest"></div>
@@ -144,6 +145,8 @@
   </footer>
 </div>
 
+<!-- Local-file fallback: populates window.EC synchronously so the page works when opened directly (file://). The fetch in init() still refreshes data.js when served over http. -->
+<script src="data.js"></script>
 <script>
 let DATA = [];
 
@@ -316,6 +319,36 @@ async function pushSync(){
   try{await fetch(SYNC_URL,{method:"POST",body:getWatch().join("\n")});}catch(e){}
 }
 
+/* ---- "Refresh now": ask the laptop listener (via the Worker) to regenerate prices+dates on demand ---- */
+(function(){
+  const btn=document.getElementById("refreshNowBtn");
+  if(!btn)return;
+  const rbase=()=>SYNC_URL.replace(/\/+$/,"");
+  let busy=false;
+  btn.addEventListener("click",async ()=>{
+    if(!syncOn()){feedback("Refresh needs the sync Worker configured.","var(--amber)");return;}
+    if(busy)return; busy=true;
+    const old=btn.textContent; btn.disabled=true; btn.textContent="↻ Refreshing…";
+    const stamp0=(window.EC&&window.EC.STAMP)||"";
+    try{
+      await fetch(rbase()+"/refresh",{method:"POST",body:"1"});
+      feedback("Refresh requested — your laptop is regenerating prices & dates (up to ~2 min). Needs moomoo OpenD + the refresh listener running.","var(--green)");
+    }catch(e){ feedback("Could not reach the refresh service.","var(--amber)"); btn.disabled=false; btn.textContent=old; busy=false; return; }
+    const t0=Date.now(), LIMIT=240000;
+    (async function poll(){
+      if(Date.now()-t0>LIMIT){ feedback("Still working — it'll appear on the next auto-reload.","var(--amber)"); btn.disabled=false; btn.textContent=old; busy=false; return; }
+      try{
+        const r=await fetch("data.js?cb="+Date.now(),{cache:"no-store"}); const txt=await r.text();
+        const m=txt.match(/STAMP:\s*"([^"]*)"/);
+        if(m && m[1] && m[1]!==stamp0){ (0,eval)(txt); DATA=(window.EC&&window.EC.DATA)||[]; render(curFilter);
+          const el=document.getElementById("refreshed"); if(el&&window.EC.STAMP)el.textContent=window.EC.STAMP;
+          feedback("Updated ✓","var(--green)"); btn.disabled=false; btn.textContent=old; busy=false; return; }
+      }catch(e){}
+      setTimeout(poll,8000);
+    })();
+  });
+})();
+
 setTimeout(function(){location.reload();}, 15*60*1000);
 
 (async function init(){
@@ -324,7 +357,20 @@ setTimeout(function(){location.reload();}, 15*60*1000);
   DATA.forEach(x=>{if(!(x.t in UMAP)){UMAP[x.t]=x.c||x.t;U.push([x.t,x.c||x.t]);}});
   const st=(window.EC&&window.EC.STAMP);if(st){const el=document.getElementById("refreshed");if(el)el.textContent=st;}
   render("all");
-  pullSync();
+  // --- accept tickers from a link: ?add=MMM,VKTX (e.g. from the Options Advisor dashboard) ---
+  var _skipPull=false;
+  try{
+    var _ap=new URLSearchParams(location.search).get("add");
+    if(_ap){
+      var _w=getWatch(), _ch=false, _added=[];
+      _ap.split(",").map(function(s){return s.trim().toUpperCase();})
+         .filter(function(s){return /^[A-Z][A-Z.\-]{0,6}$/.test(s);})
+         .forEach(function(t){ if(_w.indexOf(t)===-1){ _w.push(t); _ch=true; _added.push(t); if(UMAP[t]) saveName(t,UMAP[t]); } });
+      if(_ch){ setWatch(_w); render(curFilter); await pushSync(); _skipPull=true;
+        feedback("Added from link: "+_added.join(", ")+" \u2014 synced. Click \u2018Save watchlist.txt\u2019 so the data task tracks them too.","var(--green)"); }
+    }
+  }catch(e){}
+  if(!_skipPull) pullSync();
   setInterval(pullSync,30000);
 })();
 </script>
