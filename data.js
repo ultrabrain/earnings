@@ -1,5 +1,5 @@
 window.EC = {
-  STAMP: "26 Jun 2026 close · synced 5 Jul 05:09 KUL",
+  STAMP: "26 Jun 2026 close · synced 5 Jul 21:09 KUL",
   DATA: [
   {t:"PANW", c:"Palo Alto Networks", s:"Cybersecurity", d:"2026-08-24", conf:true, fq:"Q4 FY26", et:"", px:304.2, chg:3.79, ytd:65.15, vol:51.0, sup:139.57, res:306.24, hi6:306.24, ath:false},
   {t:"AVGO", c:"Broadcom", s:"Semiconductor", d:"2026-09-03", conf:true, fq:"Q3 FY26", et:"5:00 PM", px:365.02, chg:-3.67, ytd:5.86, vol:55.9, sup:289.5, res:494.22, hi6:494.22, ath:false},
@@ -17,8 +17,8 @@ window.EC = {
   {t:"STX", c:"Seagate Technology", s:"Semiconductor", d:"2026-07-16", conf:true, fq:"Q4 FY26", et:"", px:899.9, chg:-12.24, ytd:227.58, vol:68.6, sup:273.6, res:1144.18, hi6:1144.18, ath:false},
   {t:"META", c:"Meta Platforms", s:"Hyperscaler", d:"2026-07-29", conf:true, fq:"Q2 2026", et:"", px:550.25, chg:1.36, ytd:-16.49, vol:41.5, sup:519.78, res:742.68, hi6:742.68, ath:false},
   {t:"ARM", c:"Arm Holdings", s:"Semiconductor", d:"2026-07-29", conf:true, fq:"Q1 FY27", et:"", px:334.27, chg:-3.87, ytd:205.8, vol:107.3, sup:100.02, res:452.7, hi6:452.7, ath:false},
-  {t:"AMZN", c:"Amazon", s:"Hyperscaler", d:"2026-07-30", conf:true, fq:"Q2 2026", et:"", px:232.69, chg:2.5, ytd:0.81, vol:32.6, sup:196.0, res:278.56, hi6:278.56, ath:false},
-  {t:"AMD", c:"Advanced Micro Devices", s:"Semiconductor", d:"2026-08-04", conf:true, fq:"Q2 2026", et:"5:00 PM", px:521.58, chg:-2.06, ytd:143.55, vol:77.0, sup:188.22, res:562.99, hi6:562.99, ath:false},
+  {t:"AMZN", c:"Amazon", s:"Hyperscaler", d:"2026-07-30", conf:false, fq:"Q2 2026", et:"", px:232.69, chg:2.5, ytd:0.81, vol:32.6, sup:196.0, res:278.56, hi6:278.56, ath:false},
+  {t:"AMD", c:"Advanced Micro Devices", s:"Semiconductor", d:"2026-08-04", conf:false, fq:"Q2 2026", et:"5:00 PM", px:521.58, chg:-2.06, ytd:143.55, vol:77.0, sup:188.22, res:562.99, hi6:562.99, ath:false},
   {t:"WDC", c:"Western Digital", s:"Semiconductor", d:"2026-08-05", conf:false, fq:"Q4 FY26", et:"", px:586.45, chg:-13.17, ytd:240.68, vol:79.5, sup:171.13, res:799.87, hi6:799.87, ath:false},
   {t:"FTNT", c:"Fortinet", s:"Cybersecurity", d:"2026-07-29", conf:true, fq:"Q2 2026", et:"4:30 PM", px:151.35, chg:0.95, ytd:90.59, vol:53.2, sup:73.55, res:152.77, hi6:152.77, ath:false},
   {t:"PLTR", c:"Palantir", s:"Cybersecurity", d:"2026-08-10", conf:true, fq:"Q2 2026", et:"5:00 PM", px:112.93, chg:5.28, ytd:-36.47, vol:57.8, sup:106.37, res:187.28, hi6:196.35, ath:false},
