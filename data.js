@@ -1,5 +1,5 @@
 window.EC = {
-  STAMP: "13 Jul 2026 close · synced 14 Jul 05:09 KUL",
+  STAMP: "13 Jul 2026 close · synced 14 Jul 21:11 KUL",
   DATA: [
   {t:"PANW", c:"Palo Alto Networks", s:"Cybersecurity", d:"2026-08-24", conf:true, fq:"Q4 FY26", et:"", px:330.3, chg:1.35, ytd:79.32, vol:51.6, sup:139.57, res:368.17, hi6:368.17, ath:false},
   {t:"AVGO", c:"Broadcom", s:"Semiconductor", d:"2026-09-03", conf:true, fq:"Q3 FY26", et:"5:00 PM", px:384.05, chg:-3.98, ytd:11.37, vol:54.3, sup:289.5, res:494.22, hi6:494.22, ath:false},
@@ -39,9 +39,9 @@ window.EC = {
   {t:"NET", c:"Cloudflare", s:"Cybersecurity", d:"2026-07-30", conf:true, fq:"Q2 2026", et:"5:00 PM", px:269.53, chg:0.42, ytd:36.71, vol:81.2, sup:158.83, res:280.14, hi6:280.14, ath:false},
   {t:"TEAM", c:"Atlassian", s:"Enterprise SaaS", d:"2026-08-03", conf:false, fq:"Q4 FY26", et:"", px:96.16, chg:8.22, ytd:-40.69, vol:90.3, sup:56.01, res:140.68, hi6:148.73, ath:false},
   {t:"INTU", c:"Intuit", s:"Enterprise SaaS", d:"2026-08-20", conf:false, fq:"Q4 FY26", et:"", px:289.76, chg:5.38, ytd:-55.85, vol:68.7, sup:251.72, res:565.12, hi6:638.15, ath:false},
-  {t:"SHOP", c:"Shopify", s:"Enterprise SaaS", d:"2026-07-29", conf:true, fq:"Q2 2026", et:"8:30 AM", px:124.74, chg:1.8, ytd:-22.51, vol:63.5, sup:94.0, res:151.72, hi6:170.9, ath:false},
+  {t:"SHOP", c:"Shopify", s:"Enterprise SaaS", d:"2026-08-05", conf:true, fq:"Q2 2026", et:"8:30 AM", px:124.74, chg:1.8, ytd:-22.51, vol:63.5, sup:94.0, res:151.72, hi6:170.9, ath:false},
   {t:"HUBS", c:"HubSpot", s:"Enterprise SaaS", d:"2026-08-05", conf:true, fq:"Q2 2026", et:"4:30 PM", px:217.59, chg:4.87, ytd:-45.78, vol:84.2, sup:169.63, res:335.29, hi6:383.4, ath:false},
-  {t:"MMM", c:"3M", s:"Industrial", d:"2026-07-28", conf:true, fq:"Q2 2026", et:"9:00 AM", px:157.7, chg:0.11, ytd:-0.55, vol:22.9, sup:138.62, res:175.71, hi6:175.71, ath:false},
+  {t:"MMM", c:"3M", s:"Industrial", d:"2026-07-21", conf:true, fq:"Q2 2026", et:"9:00 AM", px:157.7, chg:0.11, ytd:-0.55, vol:22.9, sup:138.62, res:175.71, hi6:175.71, ath:false},
   {t:"TSLA", c:"Tesla", s:"Automotive", d:"2026-07-22", conf:true, fq:"Q2 2026", et:"5:30 PM", px:394.76, chg:-3.19, ytd:-12.22, vol:50.6, sup:337.24, res:453.4, hi6:454.3, ath:false}
   ]
 };
