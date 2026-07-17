@@ -1,5 +1,5 @@
 window.EC = {
-  STAMP: "16 Jul 2026 close · synced 17 Jul 05:09 KUL",
+  STAMP: "16 Jul 2026 close · synced 17 Jul 21:10 KUL",
   DATA: [
   {t:"PANW", c:"Palo Alto Networks", s:"Cybersecurity", d:"2026-08-24", conf:true, fq:"Q4 FY26", et:"", px:353.99, chg:-0.01, ytd:92.18, vol:52.4, sup:139.57, res:368.17, hi6:368.17, ath:false},
   {t:"AVGO", c:"Broadcom", s:"Semiconductor", d:"2026-09-03", conf:true, fq:"Q3 FY26", et:"5:00 PM", px:374.45, chg:-5.03, ytd:8.59, vol:54.6, sup:289.5, res:494.22, hi6:494.22, ath:false},
@@ -8,13 +8,13 @@ window.EC = {
   {t:"ADBE", c:"Adobe", s:"Enterprise SaaS", d:"2026-09-10", conf:false, fq:"Q3 FY26", et:"", px:235.31, chg:4.79, ytd:-32.77, vol:46.7, sup:190.12, res:306.3, hi6:306.3, ath:false},
   {t:"ORCL", c:"Oracle", s:"Server Hardware", d:"2026-09-14", conf:true, fq:"Q1 FY27", et:"", px:124.21, chg:-6.25, ytd:-35.66, vol:63.6, sup:123.66, res:249.38, hi6:249.38, ath:false},
   {t:"MU", c:"Micron Technology", s:"Semiconductor", d:"2026-09-29", conf:true, fq:"Q4 FY26", et:"", px:853.2, chg:-5.65, ytd:199.11, vol:104.2, sup:311.44, res:1254.81, hi6:1254.81, ath:false},
-  {t:"TSM", c:"Taiwan Semiconductor", s:"Semiconductor", d:"2026-07-16", conf:true, fq:"Q2 2026", et:"2:00 AM", px:409.74, chg:-2.32, ytd:35.52, vol:48.9, sup:313.08, res:479.0, hi6:479.0, ath:false},
+  {t:"TSM", c:"Taiwan Semiconductor", s:"Semiconductor", d:"2026-10-14", conf:true, fq:"Q3 2026", et:"", px:409.74, chg:-2.32, ytd:35.52, vol:48.9, sup:313.08, res:479.0, hi6:479.0, ath:false},
   {t:"IBM", c:"IBM", s:"Server Hardware", d:"2026-07-22", conf:true, fq:"Q2 2026", et:"5:00 PM", px:219.05, chg:3.72, ytd:-25.08, vol:80.4, sup:204.44, res:332.46, hi6:332.46, ath:false},
   {t:"NOW", c:"ServiceNow", s:"Enterprise SaaS", d:"2026-07-22", conf:true, fq:"Q2 2026", et:"5:00 PM", px:104.01, chg:-0.69, ytd:-32.1, vol:76.3, sup:81.24, res:139.2, hi6:139.2, ath:false},
   {t:"INTC", c:"Intel", s:"Semiconductor", d:"2026-07-23", conf:true, fq:"Q2 2026", et:"5:00 PM", px:96.98, chg:-5.84, ytd:162.82, vol:97.0, sup:40.63, res:142.35, hi6:142.35, ath:false},
   {t:"MSFT", c:"Microsoft", s:"Hyperscaler", d:"2026-07-29", conf:true, fq:"Q4 FY26", et:"5:30 PM", px:401.1, chg:1.38, ytd:-16.69, vol:34.0, sup:349.2, res:481.6, hi6:481.6, ath:false},
   {t:"GOOG", c:"Alphabet", s:"Hyperscaler", d:"2026-07-22", conf:true, fq:"Q2 2026", et:"4:30 PM", px:353.81, chg:-4.43, ytd:12.9, vol:35.9, sup:271.37, res:404.23, hi6:404.23, ath:false},
-  {t:"STX", c:"Seagate Technology", s:"Semiconductor", d:"2026-07-16", conf:true, fq:"Q4 FY26", et:"", px:745.49, chg:-10.0, ytd:171.37, vol:77.6, sup:321.25, res:1144.18, hi6:1144.18, ath:false},
+  {t:"STX", c:"Seagate Technology", s:"Semiconductor", d:"2026-07-28", conf:true, fq:"Q4 FY26", et:"", px:745.49, chg:-10.0, ytd:171.37, vol:77.6, sup:321.25, res:1144.18, hi6:1144.18, ath:false},
   {t:"META", c:"Meta Platforms", s:"Hyperscaler", d:"2026-07-29", conf:true, fq:"Q2 2026", et:"5:00 PM", px:664.54, chg:-2.46, ytd:0.85, vol:44.4, sup:519.78, res:742.68, hi6:742.68, ath:false},
   {t:"ARM", c:"Arm Holdings", s:"Semiconductor", d:"2026-07-29", conf:false, fq:"Q1 FY27", et:"", px:262.01, chg:-5.41, ytd:139.69, vol:110.0, sup:100.02, res:452.7, hi6:452.7, ath:false},
   {t:"AMZN", c:"Amazon", s:"Hyperscaler", d:"2026-07-30", conf:true, fq:"Q2 2026", et:"5:00 PM", px:249.89, chg:-1.99, ytd:8.26, vol:28.6, sup:196.0, res:278.56, hi6:278.56, ath:false},
