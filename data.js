@@ -1,5 +1,5 @@
 window.EC = {
-  STAMP: "27 Jul 2026 close · synced 28 Jul 01:09 KUL",
+  STAMP: "27 Jul 2026 close · synced 28 Jul 01:39 KUL",
   DATA: [
   {t:"PANW", c:"Palo Alto Networks", s:"Cybersecurity", d:"2026-08-24", conf:true, fq:"Q4 FY26", et:"", px:326.12, chg:0.72, ytd:77.05, vol:52.6, sup:139.57, res:368.8, hi6:368.8, ath:false},
   {t:"AVGO", c:"Broadcom", s:"Semiconductor", d:"2026-09-03", conf:true, fq:"Q3 FY26", et:"5:00 PM", px:377.57, chg:-1.14, ytd:9.49, vol:54.3, sup:289.5, res:494.22, hi6:494.22, ath:false},
