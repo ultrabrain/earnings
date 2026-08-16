@@ -1,0 +1,337 @@
+<!doctype html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Options Advisor</title>
+<meta name="theme-color" content="#186e54">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Advisor">
+<style>
+:root{--ink:#1f2937;--mut:#6b7280;--line:#e6e8ec;--g:#1f9d55;--r:#d0342c;--m:#b8860b;--card:#fff;--bg:#f4f5f7;
+--amberbg:#fff8e6;--greenbg:#eafaf0;--redbg:#fdeceb;--blue:#2f6fbf}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:12px;max-width:760px;margin:0 auto}
+h2{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin:18px 4px 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0}
+.regime{border-left:5px solid var(--m);background:var(--amberbg)}
+.regime .tag{font-weight:700;font-size:16px;margin-bottom:4px}
+.regime .head{font-size:13px;color:#5b4a1f}
+.hd{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:2px}
+.hd .ttl{font-size:18px;font-weight:800}
+.hd .ts{font-size:11px;color:var(--mut)}
+.calbtn{flex:none;background:#186e54;color:#fff;text-decoration:none;font-size:12px;font-weight:700;
+padding:8px 12px;border-radius:9px;white-space:nowrap}
+.calbtn:active{background:#12513e}
+.setup{border-top:1px solid var(--line);padding:8px 0}
+.setup:first-child{border-top:0}
+.srow{display:flex;align-items:center;gap:8px}
+.dir{font-size:10px;font-weight:800;border-radius:5px;padding:2px 6px;color:#fff}
+.dir.g{background:var(--g)}.dir.r{background:var(--r)}.dir.m{background:var(--m)}
+.stitle{font-weight:700;flex:1;font-size:14px}
+.conv{color:var(--m);font-size:12px;letter-spacing:1px}
+.smeta{color:var(--mut);font-size:12px;margin:2px 0}
+.sline{font-size:13px}
+.empty .big{font-size:16px;font-weight:800}
+.empty .sub{color:var(--mut);font-size:13px;margin-top:2px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:right;padding:6px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:10px;text-transform:uppercase;color:var(--mut);letter-spacing:.04em}
+td:first-child,th:first-child{text-align:left}
+.tk{font-weight:700} .mut{color:var(--mut);font-weight:400;font-size:11px}
+.cv{color:var(--m);letter-spacing:1px;font-size:11px}
+.g{color:var(--g);font-weight:700} .r{color:var(--r);font-weight:700} .m{color:var(--m);font-weight:700}
+.ex{font-size:11px;color:var(--mut)}
+.scoreline{display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;margin-bottom:6px}
+.scoreline .k{font-size:11px;color:var(--mut);text-transform:uppercase}
+.scoreline .v{font-size:20px;font-weight:800}
+.cats{margin:4px 0 0;padding-left:18px;font-size:12px;color:#444}
+.foot{font-size:11px;color:var(--mut);margin:14px 4px;line-height:1.5}
+details summary{cursor:pointer;font-size:12px;color:var(--blue)}
+.scrow{cursor:pointer} .scrow:active{background:#f7f8fa}
+.chev{color:var(--mut);font-size:10px}
+.scdet{display:none} .scdet.open{display:table-row}
+.detbox{background:#fafbfc;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:2px 0 6px;text-align:left;font-size:12.5px}
+.det-head{font-weight:800;font-size:14px;margin-bottom:6px}
+.dl{display:flex;gap:8px;padding:2px 0;border-bottom:1px dashed var(--line)}
+.dk{color:var(--mut);min-width:78px;flex:none} .dv{font-weight:600}
+.det-why{margin-top:8px;line-height:1.5} .det-notes{margin-top:6px;color:#444;line-height:1.5}
+.toggle{display:flex;gap:0;margin:2px 0 6px;border:1px solid var(--line);border-radius:9px;overflow:hidden;width:max-content}
+.toggle a{font-size:12px;font-weight:700;text-decoration:none;color:var(--mut);padding:6px 12px}
+.toggle a.on{background:#186e54;color:#fff}
+.hint{font-size:11px;color:var(--mut);margin:2px 0 6px}
+.ownb{display:inline-block;font-size:9px;font-weight:800;background:#b8860b;color:#fff;border-radius:4px;padding:1px 4px;vertical-align:middle}
+.sf{display:flex;gap:0;margin:0 0 10px;border:1px solid var(--line);border-radius:9px;overflow:hidden;width:max-content}
+.sf button{font-size:12px;font-weight:700;border:0;background:#fff;color:var(--mut);padding:7px 14px;cursor:pointer}
+.sf button.on{background:#186e54;color:#fff}
+.seemore{display:block;width:100%;margin-top:8px;padding:9px;border:1px solid var(--line);background:#f7f8fa;border-radius:8px;font-size:12px;font-weight:700;color:var(--blue);cursor:pointer}
+</style></head><body>
+
+<div class="hd">
+  <div><div class="ttl">Options Advisor</div><div class="ts">gen 15 Aug 2026, 8:58 AM KL (GMT+8) · data as of 14 Aug 2026</div></div>
+  <a class="calbtn" href="https://ultrabrain.github.io/earnings/" target="_blank" rel="noopener">📅 Earnings calendar →</a>
+</div>
+
+<div class="toggle"><a class="on" href="./advisor.html">Simple</a><a href="./advisor-full.html">Full view</a></div>
+
+<div class="card regime">
+  <div class="tag">Consumer blinked, tech gave back the record — stay defensive</div>
+  <div class="head">Friday cracked Thursday&#x27;s melt-up narrative: July retail sales FELL 0.6% (vs +0.1% expected), the first drop in nine months and the biggest in 14, and the S&amp;P slipped 0.17% off its record to 7,786 as tech led the pullback (AVGO -6%). VIX still sits at a complacent 14.25 and the S&amp;P still booked a third straight weekly gain, but a softening consumer plus a record-high, rock-bottom-VIX tape ahead of a heavy late-August catalyst run (FOMC minutes 8/20, Jackson Hole ~8/22, NVDA+CRM 8/26) is a place to protect, not chase. The rotation into cyclicals/value (Energy, Industrials, Financials) is now the market&#x27;s cleanest signal, not mega-cap tech.</div>
+</div>
+
+<h2>1 · Tonight's plan</h2>
+<div class="card"><div class="empty">
+          <div class="big">No ≥4★ setup — sit in cash</div>
+          <div class="sub">Consumer blinked, tech gave back the record — stay defensive</div>
+        </div></div>
+<div class="card" style="padding-top:6px">
+  <table><thead><tr><th>Watch</th><th>Px</th><th>Day</th><th>Trend</th><th>Lean</th><th>Conv</th></tr></thead>
+  <tbody><tr><td class="tk">SPY</td>
+          <td>$776.04</td><td>-0.2%</td>
+          <td>Up</td>
+          <td class="m">Wait</td>
+          <td class="cv">★★☆☆☆</td></tr><tr><td class="tk">QQQ</td>
+          <td>~$722</td><td>-0.3%</td>
+          <td>Up</td>
+          <td class="m">Wait</td>
+          <td class="cv">★★☆☆☆</td></tr><tr><td class="tk">SMH</td>
+          <td>~$592</td><td>~-0.7%</td>
+          <td>Up</td>
+          <td class="">Watch</td>
+          <td class="cv">★★★☆☆</td></tr><tr><td class="tk">NVDA</td>
+          <td>$225.16</td><td>-0.1%</td>
+          <td>Up</td>
+          <td class="">Hold</td>
+          <td class="cv">★★★☆☆</td></tr><tr><td class="tk">AMD</td>
+          <td>~$488</td><td>~-0.8%</td>
+          <td>Up</td>
+          <td class="m">Wait</td>
+          <td class="cv">★★☆☆☆</td></tr><tr><td class="tk">AVGO</td>
+          <td>~$397</td><td>~-6%</td>
+          <td>Pullback</td>
+          <td class="m">Wait</td>
+          <td class="cv">★★☆☆☆</td></tr><tr><td class="tk">MSFT</td>
+          <td>~$493</td><td>~-0.4%</td>
+          <td>Up</td>
+          <td class="m">Wait</td>
+          <td class="cv">★★☆☆☆</td></tr><tr><td class="tk">GOOGL</td>
+          <td>~$345</td><td>~flat</td>
+          <td>Up</td>
+          <td class="m">Wait</td>
+          <td class="cv">★★☆☆☆</td></tr><tr><td class="tk">META</td>
+          <td>~$580</td><td>~-0.5%</td>
+          <td>Up</td>
+          <td class="m">Wait</td>
+          <td class="cv">★★☆☆☆</td></tr><tr><td class="tk">AMZN</td>
+          <td>~$267</td><td>~-0.4%</td>
+          <td>Up</td>
+          <td class="m">Wait</td>
+          <td class="cv">★★☆☆☆</td></tr><tr><td class="tk">PLTR</td>
+          <td>~$176</td><td>~-1.7%</td>
+          <td>Pullback</td>
+          <td class="m">Wait</td>
+          <td class="cv">★★☆☆☆</td></tr><tr><td class="tk">CRWD</td>
+          <td>~$221</td><td>~-0.5%</td>
+          <td>Pullback</td>
+          <td class="m">Wait</td>
+          <td class="cv">★★☆☆☆</td></tr><tr><td class="tk">NOW</td>
+          <td>~$124</td><td>~-0.5%</td>
+          <td>Pullback</td>
+          <td class="m">Wait</td>
+          <td class="cv">★★☆☆☆</td></tr></tbody></table>
+</div>
+
+<h2>2 · Open positions <span style="text-transform:none;font-weight:400">(soonest expiry first)</span></h2>
+<div class="card">
+  <table><thead><tr><th>Position</th><th>Expiry</th><th>Qty</th><th>Cost→Now</th><th>P/L</th><th>Spot / B/E</th></tr></thead>
+  <tbody><tr>
+          <td class="tk">XLE <span class="mut">61.5P</span></td>
+          <td>21 Aug 2026 (5d)</td>
+          <td>10</td>
+          <td>0.55→0.53</td>
+          <td class="r">-4%<br><span class="mut">-$20</span></td>
+          <td>B/E $60.95<br><span class="mut">spot n/a</span></td></tr><tr>
+          <td class="tk">OKTA <span class="mut">150.0C</span></td>
+          <td>21 Aug 2026 (5d)</td>
+          <td>2</td>
+          <td>4.30→2.92</td>
+          <td class="r">-32%<br><span class="mut">-$277</span></td>
+          <td>B/E $154.30<br><span class="mut">spot n/a</span></td></tr><tr>
+          <td class="tk">NVDA <span class="mut">225.0C</span></td>
+          <td>24 Aug 2026 (8d)</td>
+          <td>6</td>
+          <td>3.29→4.35</td>
+          <td class="g">+32%<br><span class="mut">+$637</span></td>
+          <td><span class="mut">spot $225.16</span><br>B/E $228.29<br><span class="m">needs +1.4%</span></td></tr><tr>
+          <td class="tk">CRM <span class="mut">200.0C</span></td>
+          <td>28 Aug 2026 (12d)</td>
+          <td>3</td>
+          <td>6.00→7.12</td>
+          <td class="g">+19%<br><span class="mut">+$335</span></td>
+          <td><span class="mut">spot $198.00</span><br>B/E $206.00<br><span class="m">needs +4.0%</span></td></tr><tr>
+          <td class="tk">AAPL <span class="mut">310.0C</span></td>
+          <td>28 Aug 2026 (12d)</td>
+          <td>5</td>
+          <td>3.20→3.50</td>
+          <td class="g">+9%<br><span class="mut">+$150</span></td>
+          <td><span class="mut">spot $305.78</span><br>B/E $313.20<br><span class="m">needs +2.4%</span></td></tr><tr>
+          <td class="tk">HPE <span class="mut">60.0C</span></td>
+          <td>04 Sep 2026 (19d)</td>
+          <td>4</td>
+          <td>4.50→4.06</td>
+          <td class="r">-10%<br><span class="mut">-$176</span></td>
+          <td><span class="mut">spot $59.00</span><br>B/E $64.50<br><span class="m">needs +9.3%</span></td></tr><tr>
+          <td class="tk">BULL <span class="mut">7.5C</span></td>
+          <td>21 Jan 2028 (523d)</td>
+          <td>2</td>
+          <td>2.91→2.84</td>
+          <td class="r">-2%<br><span class="mut">-$14</span></td>
+          <td>B/E $10.41<br><span class="mut">spot n/a</span></td></tr></tbody></table>
+  <div class="ex" style="margin-top:6px">B/E = breakeven at expiry (strike ± cost). "needs +X%" is how far the underlying must still move in your favour to break even; "past B/E ✓" means it's already there. An advisor stop/target shows under a position only when it exactly matches a suggested setup (strike + expiry); your own trades show none — set your own trailing stop.</div>
+</div>
+
+<h2>3 · Scorecard</h2>
+<div class="card">
+  <div class="sf">
+    <button id="sf-advisor" onclick="scFilter('advisor')">Advisor</button>
+    <button id="sf-own" onclick="scFilter('own')">Own trades</button>
+    <button id="sf-all" onclick="scFilter('all')">All</button>
+  </div>
+  <div class="scoreline">
+    <div><div class="k">Hit rate</div><div class="v" id="sc-hr">–</div></div>
+    <div><div class="k">Cumulative P/L</div><div class="v" id="sc-cum">–</div></div>
+    <div><div class="k">Won / Lost</div><div class="v" id="sc-wl">–</div></div>
+  </div>
+  <div class="hint">Tap any row for the full trade breakdown + reasoning. <b>OWN</b> = your own trade (advisor didn't suggest it).</div>
+  <table><thead><tr><th>Date</th><th>Ticker</th><th>Conv</th><th>Result</th><th>%</th><th>$</th></tr></thead>
+  <tbody id="sctbody"><tr class="scrow" data-i="0" data-origin="advisor" data-out="won" data-dollars="939" onclick="tog('d0')">
+          <td>2026-07-20 <span class="chev" id="c0">▸</span><br><span class="mut">suggested</span></td>
+          <td class="tk">XLE</td>
+          <td class="cv">★★★★☆</td>
+          <td class="g">WON</td>
+          <td class="g">+65%</td>
+          <td class="g">+$939</td></tr>
+          <tr class="scdet" id="d0" data-detail="0"><td colspan="6"><div class="detbox"><div class="det-head">XLE · CALLS <span class="cv">★★★★☆</span> <span class="g">WON +65% · +$939</span></div><div class="dl"><span class="dk">Origin</span><span class="dv">Advisor setup — you acted on it</span></div><div class="dl"><span class="dk">Structure</span><span class="dv">debit call spread: buy $58 call / sell $61 call</span></div><div class="dl"><span class="dk">Legs</span><span class="dv">long $58.0 / short $61.0</span></div><div class="dl"><span class="dk">Suggested</span><span class="dv">2026-07-20</span></div><div class="dl"><span class="dk">Executed</span><span class="dv">2026-07-20</span></div><div class="dl"><span class="dk">Exited</span><span class="dv">2026-07-22</span></div><div class="dl"><span class="dk">Expiry</span><span class="dv">2026-07-31</span></div><div class="dl"><span class="dk">Horizon</span><span class="dv">10 days to 31 Jul expiry</span></div><div class="dl"><span class="dk">Levels</span><span class="dv">stop 55.8 · T1 59.5 · T2 61.0</span></div><div class="det-why"><b>Why this result:</b> Entered 17× at $0.85 ($1,445 at risk). Closed 10@$1.39, 7@$1.42 on 2026-07-22. Won +65% ($939).</div><div class="det-notes"><b>Notes:</b> Pre-open 21 Jul: XLE ~$57.72 pre-market (-0.4%), oil easing on reports of mediators pushing a fresh 10-day US-Iran ceasefire. That is the direct threat to this spread - the whole thesis is the Hormuz premium.</div></div></td></tr><tr class="scrow" data-i="1" data-origin="own" data-out="lost" data-dollars="-5081" onclick="tog('d1')">
+          <td>2026-07-15 <span class="chev" id="c1">▸</span><br><span class="mut">executed</span></td>
+          <td class="tk"><span class="ownb">OWN</span> GOOG</td>
+          <td class="cv">★★★★☆</td>
+          <td class="r">LOST</td>
+          <td class="r">-96%</td>
+          <td class="r">-$5,081</td></tr>
+          <tr class="scdet" id="d1" data-detail="1"><td colspan="6"><div class="detbox"><div class="det-head">GOOG · CALLS <span class="cv">★★★★☆</span> <span class="r">LOST -96% · -$5,081</span></div><div class="dl"><span class="dk">Origin</span><span class="dv">Your own trade — you decided this (advisor did NOT suggest it)</span></div><div class="dl"><span class="dk">Structure</span><span class="dv">debit call spread: buy $365 call / sell $380 call</span></div><div class="dl"><span class="dk">Legs</span><span class="dv">long $365.0 / short $380.0</span></div><div class="dl"><span class="dk">Bought</span><span class="dv">2026-07-15</span></div><div class="dl"><span class="dk">Executed</span><span class="dv">2026-07-15</span></div><div class="dl"><span class="dk">Exited</span><span class="dv">2026-07-23</span></div><div class="dl"><span class="dk">Expiry</span><span class="dv">2026-08-07</span></div><div class="dl"><span class="dk">Horizon</span><span class="dv">17 days to 7 Aug expiry</span></div><div class="dl"><span class="dk">Levels</span><span class="dv">stop 340.0 · T1 365.0 · T2 380.0</span></div><div class="det-why"><b>Why this result:</b> Entered 4× at $13.30 ($5,320 at risk). Closed 4@$0.60 on 2026-07-23. Lost -96% ($-5,081).</div><div class="det-notes"><b>Notes:</b> CORRECTION: Alphabet Q2 reports Wed 22 Jul after the US close (conf call 4:30pm ET), NOT Tue 21 Jul as the 7:57 AM run stated. Two sessions left to repair, not one. GOOG pre-market 21 Jul ~$355.71 (+1.2%), long $365 call now $9.29 OTM vs $13.63 yesterday - the pre-market rally has improved the repair terms. | CLOSED 7/23 09:40 ET: sold 4x 365C @ $0.60 vs $13.30 entry = -$5,080 realized (-95.5%). Discovered via moomoo deal-history reconciliation on the 7/25 00:40 KL monitor run (prior runs used a stale moomoo snapshot that still showed the position open).</div></div></td></tr><tr class="scrow" data-i="2" data-origin="advisor" data-out="lost" data-dollars="-1056" onclick="tog('d2')">
+          <td>2026-07-09 <span class="chev" id="c2">▸</span><br><span class="mut">suggested</span></td>
+          <td class="tk">MSFT</td>
+          <td class="cv">★★★☆☆</td>
+          <td class="r">LOST</td>
+          <td class="r">-48%</td>
+          <td class="r">-$1,056</td></tr>
+          <tr class="scdet" id="d2" data-detail="2"><td colspan="6"><div class="detbox"><div class="det-head">MSFT · PUTS <span class="cv">★★★☆☆</span> <span class="r">LOST -48% · -$1,056</span></div><div class="dl"><span class="dk">Origin</span><span class="dv">Advisor setup — you acted on it</span></div><div class="dl"><span class="dk">Structure</span><span class="dv">debit put spread: buy $380 put / sell $360 put</span></div><div class="dl"><span class="dk">Legs</span><span class="dv">long $380.0 / short $360.0</span></div><div class="dl"><span class="dk">Suggested</span><span class="dv">2026-07-09</span></div><div class="dl"><span class="dk">Executed</span><span class="dv">2026-07-10</span></div><div class="dl"><span class="dk">Exited</span><span class="dv">2026-07-15</span></div><div class="dl"><span class="dk">Expiry</span><span class="dv">2026-07-24</span></div><div class="dl"><span class="dk">Horizon</span><span class="dv">1-2 weeks (exp 7/24)</span></div><div class="dl"><span class="dk">Levels</span><span class="dv">stop 396 · T1 368 · T2 360</span></div><div class="det-why"><b>Why this result:</b> Entered 4× at $5.50 ($2,200 at risk). Closed 4@$2.86 on 2026-07-15. Lost -48% ($-1,056).</div><div class="det-notes"><b>Notes:</b> Intraday 14 Jul: MSFT -1.0% to $387.20 into a risk-on tape (software sold to fund semis) — day HELPS the put; moomoo ~-18% (was -28% pre-open). Hold; $396 stop intact. | CLOSED 7/15 15:33 ET: entry net $5.50 -&gt; exit net $2.86 = -$1,056 realized (-48%). MSFT recovered +2.8% to 395.63 (software bounce), thesis invalidated; qty now 0/0 in moomoo.</div></div></td></tr><tr class="scrow" data-i="3" data-origin="advisor" data-out="lost" data-dollars="-1394" onclick="tog('d3')">
+          <td>2026-07-09 <span class="chev" id="c3">▸</span><br><span class="mut">suggested</span></td>
+          <td class="tk">XLV</td>
+          <td class="cv">★★☆☆☆</td>
+          <td class="r">LOST</td>
+          <td class="r">-81%</td>
+          <td class="r">-$1,394</td></tr>
+          <tr class="scdet" id="d3" data-detail="3"><td colspan="6"><div class="detbox"><div class="det-head">XLV · CALLS <span class="cv">★★☆☆☆</span> <span class="r">LOST -81% · -$1,394</span></div><div class="dl"><span class="dk">Origin</span><span class="dv">Advisor setup — you acted on it</span></div><div class="dl"><span class="dk">Structure</span><span class="dv">debit call spread: buy $162 call / sell $172 call</span></div><div class="dl"><span class="dk">Legs</span><span class="dv">long $162.0 / short $172.0</span></div><div class="dl"><span class="dk">Suggested</span><span class="dv">2026-07-09</span></div><div class="dl"><span class="dk">Executed</span><span class="dv">2026-07-09</span></div><div class="dl"><span class="dk">Exited</span><span class="dv">2026-07-14</span></div><div class="dl"><span class="dk">Expiry</span><span class="dv">2026-07-24</span></div><div class="dl"><span class="dk">Horizon</span><span class="dv">1-2 weeks</span></div><div class="dl"><span class="dk">Levels</span><span class="dv">stop 158.5 · T1 167.0 · T2 170.0</span></div><div class="det-why"><b>Why this result:</b> Entered 7× at $2.45 ($1,715 at risk). Closed 4@$0.50, 3@$0.40 on 2026-07-14. Lost -81% ($-1,394).</div><div class="det-notes"><b>Notes:</b> Intraday 14 Jul: XLV $158.16 (-2.0%) BROKE the $158.50 stop — cool-CPI risk-on rotation out of defensives (the &#x27;wrong if&#x27;). moomoo ~-89%. EXIT signal.</div></div></td></tr><tr class="scrow" data-i="4" data-origin="advisor" data-out="lost" data-dollars="-1769" onclick="tog('d4')">
+          <td>2026-07-08 <span class="chev" id="c4">▸</span><br><span class="mut">suggested</span></td>
+          <td class="tk">MRNA</td>
+          <td class="cv">★☆☆☆☆</td>
+          <td class="r">LOST</td>
+          <td class="r">-92%</td>
+          <td class="r">-$1,769</td></tr>
+          <tr class="scdet" id="d4" data-detail="4"><td colspan="6"><div class="detbox"><div class="det-head">MRNA · CALLS <span class="cv">★☆☆☆☆</span> <span class="r">LOST -92% · -$1,769</span></div><div class="dl"><span class="dk">Origin</span><span class="dv">Advisor setup — you acted on it</span></div><div class="dl"><span class="dk">Structure</span><span class="dv">debit call spread: buy $75 call / sell $90 call</span></div><div class="dl"><span class="dk">Legs</span><span class="dv">long $75.0 / short $90.0</span></div><div class="dl"><span class="dk">Suggested</span><span class="dv">2026-07-08</span></div><div class="dl"><span class="dk">Executed</span><span class="dv">2026-07-08</span></div><div class="dl"><span class="dk">Exited</span><span class="dv">2026-07-14</span></div><div class="dl"><span class="dk">Expiry</span><span class="dv">2026-07-17</span></div><div class="dl"><span class="dk">Horizon</span><span class="dv">1-2 weeks</span></div><div class="dl"><span class="dk">Levels</span><span class="dv">stop 70 · T1 82 · T2 90</span></div><div class="det-why"><b>Why this result:</b> Entered 5× at $3.85 ($1,925 at risk). Closed 5@$0.31 on 2026-07-14. Lost -92% ($-1,769).</div><div class="det-notes"><b>Notes:</b> Intraday 14 Jul: MRNA $67.12 flat, long $75 call ~$8 OTM, expires Fri 17 Jul. moomoo ~-93%. Dead — cut.</div></div></td></tr><tr class="scrow" data-i="5" data-origin="advisor" data-out="won" data-dollars="1811" onclick="tog('d5')">
+          <td>2026-07-06 <span class="chev" id="c5">▸</span><br><span class="mut">suggested</span></td>
+          <td class="tk">SMH</td>
+          <td class="cv">★★★★☆</td>
+          <td class="g">WON</td>
+          <td class="g">+70%</td>
+          <td class="g">+$1,811</td></tr>
+          <tr class="scdet" id="d5" data-detail="5"><td colspan="6"><div class="detbox"><div class="det-head">SMH · PUTS <span class="cv">★★★★☆</span> <span class="g">WON +70% · +$1,811</span></div><div class="dl"><span class="dk">Origin</span><span class="dv">Advisor setup — you acted on it</span></div><div class="dl"><span class="dk">Structure</span><span class="dv">debit put spread: buy $600 put / sell $570 put</span></div><div class="dl"><span class="dk">Legs</span><span class="dv">long $600.0 / short $570.0</span></div><div class="dl"><span class="dk">Suggested</span><span class="dv">2026-07-06</span></div><div class="dl"><span class="dk">Executed</span><span class="dv">2026-07-06</span></div><div class="dl"><span class="dk">Exited</span><span class="dv">2026-07-08</span></div><div class="dl"><span class="dk">Expiry</span><span class="dv">2026-07-17</span></div><div class="dl"><span class="dk">Horizon</span><span class="dv">1-2 weeks</span></div><div class="dl"><span class="dk">Levels</span><span class="dv">stop 652 · T1 580 · T2 570</span></div><div class="det-why"><b>Why this result:</b> Entered 3× at $8.61 ($2,583 at risk). Closed 2@$15.75, 1@$12.43 on 2026-07-08. Won +70% ($1,811).</div><div class="det-notes"><b>Notes:</b> CLOSED. moomoo shows both legs at qty 0 (600P +$4,120 / 570P -$2,310 = +$1,810 realized on ~$2,583 entry). Booked before the 9 Jul semi rip that would have hurt it. Good exit.</div></div></td></tr><tr class="scrow" data-i="6" data-origin="advisor" data-out="lost" data-dollars="-879" onclick="tog('d6')">
+          <td>2026-07-06 <span class="chev" id="c6">▸</span><br><span class="mut">suggested</span></td>
+          <td class="tk">TSLA</td>
+          <td class="cv">★★★☆☆</td>
+          <td class="r">LOST</td>
+          <td class="r">-40%</td>
+          <td class="r">-$879</td></tr>
+          <tr class="scdet" id="d6" data-detail="6"><td colspan="6"><div class="detbox"><div class="det-head">TSLA · PUTS <span class="cv">★★★☆☆</span> <span class="r">LOST -40% · -$879</span></div><div class="dl"><span class="dk">Origin</span><span class="dv">Advisor setup — you acted on it</span></div><div class="dl"><span class="dk">Structure</span><span class="dv">debit put spread: buy $395 put / sell $360 put</span></div><div class="dl"><span class="dk">Legs</span><span class="dv">long $395.0 / short $360.0</span></div><div class="dl"><span class="dk">Suggested</span><span class="dv">2026-07-06</span></div><div class="dl"><span class="dk">Executed</span><span class="dv">2026-07-06</span></div><div class="dl"><span class="dk">Exited</span><span class="dv">2026-07-10</span></div><div class="dl"><span class="dk">Expiry</span><span class="dv">2026-07-17</span></div><div class="dl"><span class="dk">Horizon</span><span class="dv">1-2 weeks</span></div><div class="dl"><span class="dk">Levels</span><span class="dv">stop 433 · T1 385 · T2 360</span></div><div class="det-why"><b>Why this result:</b> Entered 3× at $7.31 ($2,193 at risk). Closed 1@$4.31, 2@$4.41 on 2026-07-10. Lost -40% ($-879).</div><div class="det-notes"><b>Notes:</b> HELD 2x 395/360 put spread, expiry 17 Jul. GOOD NEWS: TSLA earnings are 22 Jul, i.e. AFTER expiry - no print risk in this window. BAD NEWS: TSLA closed $406.55 (+3.17%), long 395P is 1.9% OTM with 5 sessions left, and Consumer Cyclical is the STRONGEST rotating sector (+2.75 weighted blend). A bearish position in the best-rotating sector is a direct conflict - that is the red flag, and it is why conviction is 3, not 4.</div></div></td></tr><tr class="scrow" data-i="7" data-origin="advisor" data-out="won" data-dollars="3240" onclick="tog('d7')">
+          <td>2026-07-02 <span class="chev" id="c7">▸</span><br><span class="mut">suggested</span></td>
+          <td class="tk">SMH</td>
+          <td class="cv">★★★★☆</td>
+          <td class="g">WON</td>
+          <td class="g">+92%</td>
+          <td class="g">+$3,240</td></tr>
+          <tr class="scdet" id="d7" data-detail="7"><td colspan="6"><div class="detbox"><div class="det-head">SMH · PUTS <span class="cv">★★★★☆</span> <span class="g">WON +92% · +$3,240</span></div><div class="dl"><span class="dk">Origin</span><span class="dv">Advisor setup — you acted on it</span></div><div class="dl"><span class="dk">Structure</span><span class="dv">debit put spread: buy $610 put / sell $565 put</span></div><div class="dl"><span class="dk">Legs</span><span class="dv">long $610.0 / short $565.0</span></div><div class="dl"><span class="dk">Suggested</span><span class="dv">2026-07-02</span></div><div class="dl"><span class="dk">Executed</span><span class="dv">2026-07-02</span></div><div class="dl"><span class="dk">Exited</span><span class="dv">2026-07-02</span></div><div class="dl"><span class="dk">Expiry</span><span class="dv">2026-07-17</span></div><div class="dl"><span class="dk">Horizon</span><span class="dv">1-2 weeks</span></div><div class="dl"><span class="dk">Levels</span><span class="dv">stop 652 · T1 580 · T2 565</span></div><div class="det-why"><b>Why this result:</b> Entered 3× at $11.70 ($3,510 at risk). Closed 3@$22.50 on 2026-07-02. Won +92% ($3,240).</div><div class="det-notes"><b>Notes:</b> Executed 3x 610/565 put spreads 7/2 (long 610P @19.44, short 565P @7.74, net $11.70/spread = $3,510).</div></div></td></tr><tr class="scrow" data-i="8" data-origin="own" data-out="won" data-dollars="1368" onclick="tog('d8')">
+          <td>2026-07-01 <span class="chev" id="c8">▸</span><br><span class="mut">executed</span></td>
+          <td class="tk"><span class="ownb">OWN</span> NVDA</td>
+          <td class="cv">★★☆☆☆</td>
+          <td class="g">WON</td>
+          <td class="g">+61%</td>
+          <td class="g">+$1,368</td></tr>
+          <tr class="scdet" id="d8" data-detail="8"><td colspan="6"><div class="detbox"><div class="det-head">NVDA · CALLS <span class="cv">★★☆☆☆</span> <span class="g">WON +61% · +$1,368</span></div><div class="dl"><span class="dk">Origin</span><span class="dv">Your own trade — you decided this (advisor did NOT suggest it)</span></div><div class="dl"><span class="dk">Structure</span><span class="dv">naked long calls: 8x Aug-21 $260C (dead) + 1x Aug-21 $200C (winner)</span></div><div class="dl"><span class="dk">Legs</span><span class="dv">long $260.0</span></div><div class="dl"><span class="dk">Bought</span><span class="dv">2026-07-01</span></div><div class="dl"><span class="dk">Executed</span><span class="dv">2026-07-01</span></div><div class="dl"><span class="dk">Exited</span><span class="dv">2026-07-22</span></div><div class="dl"><span class="dk">Expiry</span><span class="dv">2026-08-21</span></div><div class="dl"><span class="dk">Horizon</span><span class="dv">31 days to 21 Aug expiry</span></div><div class="dl"><span class="dk">Levels</span><span class="dv">stop 195.0 · T1 210.0 · T2 220.0</span></div><div class="det-why"><b>Why this result:</b> Entered 2× at $11.21 ($2,242 at risk). Closed 1@$18.15, 1@$17.95 on 2026-07-22. Won +61% ($1,368).</div><div class="det-notes"><b>Notes:</b> The 8x $260C are effectively dead — NVDA $203.28 needs +27.9% in 31 days; $184 of residual value left on a $4,880 cost. The 1x $200C is up 176%. Institutional put flow hit MU ($7.0M) and TSM ($1.5M) Monday afternoon; the semi tape does not support holding upside calls here.</div></div></td></tr><tr class="scrow" data-i="9" data-origin="advisor" data-out="lost" data-dollars="-1119" onclick="tog('d9')">
+          <td>2026-06-30 <span class="chev" id="c9">▸</span><br><span class="mut">suggested</span></td>
+          <td class="tk">MMM</td>
+          <td class="cv">★☆☆☆☆</td>
+          <td class="r">LOST</td>
+          <td class="r">-69%</td>
+          <td class="r">-$1,119</td></tr>
+          <tr class="scdet" id="d9" data-detail="9"><td colspan="6"><div class="detbox"><div class="det-head">MMM · CALLS <span class="cv">★☆☆☆☆</span> <span class="r">LOST -69% · -$1,119</span></div><div class="dl"><span class="dk">Origin</span><span class="dv">Advisor setup — you acted on it</span></div><div class="dl"><span class="dk">Structure</span><span class="dv">debit call spread: buy $165 call / sell $180 call</span></div><div class="dl"><span class="dk">Legs</span><span class="dv">long $165.0 / short $180.0</span></div><div class="dl"><span class="dk">Suggested</span><span class="dv">2026-06-30</span></div><div class="dl"><span class="dk">Executed</span><span class="dv">2026-06-30</span></div><div class="dl"><span class="dk">Exited</span><span class="dv">2026-07-14</span></div><div class="dl"><span class="dk">Expiry</span><span class="dv">2026-07-24</span></div><div class="dl"><span class="dk">Horizon</span><span class="dv">2-4 weeks</span></div><div class="dl"><span class="dk">Levels</span><span class="dv">stop 152 · T1 177 · T2 180</span></div><div class="det-why"><b>Why this result:</b> Entered 4× at $4.05 ($1,620 at risk). Closed 4@$1.25 on 2026-07-14. Lost -69% ($-1,119).</div><div class="det-notes"><b>Notes:</b> Intraday 14 Jul: MMM $156.46 (-0.8%), long $165 call ~$8.5 OTM, exp 24 Jul. moomoo ~-65%. Wrong side in a semis-only tape — cut.</div></div></td></tr><tr class="scrow" data-i="10" data-origin="advisor" data-out="lost" data-dollars="-609" onclick="tog('d10')">
+          <td>2026-06-26 <span class="chev" id="c10">▸</span><br><span class="mut">suggested</span></td>
+          <td class="tk">PLTR</td>
+          <td class="cv">★★★★☆</td>
+          <td class="r">LOST</td>
+          <td class="r">-81%</td>
+          <td class="r">-$609</td></tr>
+          <tr class="scdet" id="d10" data-detail="10"><td colspan="6"><div class="detbox"><div class="det-head">PLTR · PUTS <span class="cv">★★★★☆</span> <span class="r">LOST -81% · -$609</span></div><div class="dl"><span class="dk">Origin</span><span class="dv">Advisor setup — you acted on it</span></div><div class="dl"><span class="dk">Structure</span><span class="dv">debit put spread: buy $110 put / sell $100 put</span></div><div class="dl"><span class="dk">Legs</span><span class="dv">long $110.0 / short $100.0</span></div><div class="dl"><span class="dk">Suggested</span><span class="dv">2026-06-26</span></div><div class="dl"><span class="dk">Executed</span><span class="dv">2026-06-29</span></div><div class="dl"><span class="dk">Exited</span><span class="dv">2026-07-01</span></div><div class="dl"><span class="dk">Expiry</span><span class="dv">2026-07-10</span></div><div class="dl"><span class="dk">Horizon</span><span class="dv">1-2 weeks</span></div><div class="dl"><span class="dk">Levels</span><span class="dv">stop 118 · T1 104 · T2 100</span></div><div class="det-why"><b>Why this result:</b> Entered 6× at $1.26 ($756 at risk). Closed 5@$0.21, 1@$0.42 on 2026-07-01. Lost -81% ($-609).</div><div class="det-notes"><b>Notes:</b> AMD put sweep + risk-off-tech confirm. Revived to executed 6/30; thesis broke as PLTR ran up. SCORED LOST 7/2: stop (reclaim 118) blown; closed all 6 on 7/1 for net $147 vs $756 debit -&gt; realized -$609 / ~-80%.</div></div></td></tr></tbody></table>
+  <button id="sc-more" class="seemore" onclick="scMore()" style="display:none"></button>
+  <div class="ex" style="margin-top:6px">$ = fill × qty × 100 × result%. Toggle above filters the hit rate by <b>Advisor</b> setups, your <b>Own</b> trades, or <b>All</b>.</div>
+</div>
+
+<div class="card" style="padding:8px 12px">
+  <b style="font-size:12px">Next catalysts</b>
+  <ul class="cats"><li><b>2026-08-20</b> — FOMC July-meeting minutes</li><li><b>2026-08-22</b> — Jackson Hole symposium (Powell) — the next real macro binary</li><li><b>2026-08-26</b> — NVDA &amp; CRM earnings (both after close)</li></ul>
+</div>
+
+<div class="foot">
+  <details><summary>Data health / sources</summary><div style="margin-top:6px">Post-close RECAP of Fri 14 Aug (Sat 15 Aug, 8:58 AM KL). A US session closed, so this is a full refresh: as_of advanced to 14 Aug; regime/macro/sectors/watchlist rewritten. Friday: S&amp;P -0.17% to 7,786 off Thursday&#x27;s record on a -0.6% retail-sales MISS (first drop in 9 months); AVGO -6%; NVDA flat $225.16; VIX 14.25; tech led the pullback and rate-sensitives (Real Estate +2.3%) bid as yields eased. Sector WoW/MoM computed LIVE from full FMP historical-sector data this run (not carried) — Energy now #1, Industrials #2, Financials #3; Tech still negative MoM. Held book read from moomoo: NVDA 8/24 $225C x6 (+32%), CRM 8/28 $200C x3 (+19%), HPE 9/04 $60C x4 (-11%, corrected from prior &#x27;$56C x3&#x27;), plus XLE 8/21 $61.50 PUT x10 (-4%, conflicts with strong Energy), OKTA 8/21 $150C x2 (-32%), AAPL 8/28 $310C x5 (+9%), BULL 1/2028 leap (-4%). No &gt;=4-star setup — SIT IN CASH; priority is de-risking the earnings-straddle calls. NOT read this run: Discord + moomoo forum (no logged-in browser on automated run). FMP single-stock quote/RSI/economics-calendar and CRM/HPE earnings-company still plan-blocked; index closes/retail/geopolitics web-confirmed.</div></details>
+  <div style="margin-top:8px">Estimates and information only — not financial advice. Direction into earnings is a coin flip; verify live quotes and place your own orders.</div>
+</div>
+<script>
+var SCMODE='advisor', SCMAX=10, SCEXP=false;
+function tog(id){var e=document.getElementById(id);if(!e)return;var open=e.classList.toggle('open');e.style.display=open?'table-row':'none';var c=document.getElementById('c'+id.slice(1));if(c)c.textContent=open?'▾':'▸';}
+function scMore(){SCEXP=true;scFilter(SCMODE);}
+function scFilter(mode){
+  if(mode!==SCMODE){SCEXP=false;} SCMODE=mode;
+  var rows=document.querySelectorAll('#sctbody tr.scrow');
+  var won=0,lost=0,cum=0,vis=0;
+  rows.forEach(function(r){
+    var o=r.getAttribute('data-origin');
+    var det=document.getElementById('d'+r.getAttribute('data-i'));
+    var match=(mode==='all')||(o===mode);
+    if(match){
+      var out=r.getAttribute('data-out');
+      if(out==='won')won++; else if(out==='lost')lost++;
+      var d=parseFloat(r.getAttribute('data-dollars')); if(!isNaN(d))cum+=d;
+      vis++;
+      var show=SCEXP||(vis<=SCMAX);
+      r.style.display=show?'':'none';
+      if(det)det.style.display=(show&&det.classList.contains('open'))?'table-row':'none';
+    }else{
+      r.style.display='none';
+      if(det){det.classList.remove('open');det.style.display='none';}
+    }
+  });
+  var dec=won+lost;
+  document.getElementById('sc-hr').innerHTML=won+'/'+dec+' <span style="font-size:13px;color:var(--mut)">('+(dec?Math.round(won/dec*100):0)+'%)</span>';
+  var ce=document.getElementById('sc-cum');
+  ce.textContent=(cum<0?'-$':'+$')+Math.abs(Math.round(cum)).toLocaleString();
+  ce.className='v '+(cum>=0?'g':'r');
+  document.getElementById('sc-wl').innerHTML='<span class="g">'+won+'</span> / <span class="r">'+lost+'</span>';
+  ['advisor','own','all'].forEach(function(m){var b=document.getElementById('sf-'+m);if(b)b.className=(m===mode)?'on':'';});
+  var more=document.getElementById('sc-more');
+  if(more){if(!SCEXP&&vis>SCMAX){more.style.display='';more.textContent='See '+(vis-SCMAX)+' more';}else{more.style.display='none';}}
+}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(function(){});}
+scFilter('advisor');
+</script>
+</body></html>
