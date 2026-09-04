@@ -1,5 +1,5 @@
 window.EC = {
-  STAMP: "4 Sep 2026 close · synced 5 Sep 05:09 KUL",
+  STAMP: "4 Sep 2026 close · synced 5 Sep 06:07 KUL",
   DATA: [
 {t:"INTU", c:"Intuit", s:"Enterprise SaaS", d:"2026-11-19", conf:true, fq:"Q1 FY27", et:"4:30 PM", px:332.7, chg:-3.37, ytd:-49.3, vol:45.6, sup:251.72, res:477.4, hi6:479.6, ath:false},
 {t:"CRM", c:"Salesforce", s:"Enterprise SaaS", d:"2026-12-02", conf:false, fq:"Q2 FY27", et:"5:00 PM", px:259.23, chg:-1.97, ytd:-1.65, vol:58.3, sup:146.32, res:268.27, hi6:268.27, ath:false},
@@ -10,7 +10,7 @@ window.EC = {
 {t:"PANW", c:"Palo Alto Networks", s:"Cybersecurity", d:"2026-11-12", conf:false, fq:"Q1 FY27", et:"4:30 PM", px:333.26, chg:0.4, ytd:80.92, vol:57.5, sup:143.5, res:398.88, hi6:398.88, ath:false},
 {t:"HPE", c:"Hewlett Packard Ent.", s:"Server Hardware", d:"2026-11-17", conf:false, fq:"Q4 FY26", et:"4:30 PM", px:52.0, chg:-4.48, ytd:118.51, vol:55.4, sup:20.41, res:64.06, hi6:64.06, ath:false},
 {t:"SNOW", c:"Snowflake", s:"Enterprise SaaS", d:"2026-12-02", conf:false, fq:"Q3 FY27", et:"5:00 PM", px:337.18, chg:-5.41, ytd:53.71, vol:49.9, sup:118.3, res:384.56, hi6:384.56, ath:false},
-{t:"AVGO", c:"Broadcom", s:"Semiconductor", d:"2026-09-02", conf:true, fq:"Q3 FY26", et:"5:00 PM", px:357.89, chg:0.21, ytd:3.79, vol:44.4, sup:289.5, res:494.22, hi6:494.22, ath:false},
+{t:"AVGO", c:"Broadcom", s:"Semiconductor", d:"2026-12-10", conf:false, fq:"Q4 FY26", et:"", px:357.89, chg:0.21, ytd:3.79, vol:44.4, sup:289.5, res:494.22, hi6:494.22, ath:false},
 {t:"ZS", c:"Zscaler", s:"Cybersecurity", d:"2026-12-02", conf:false, fq:"Q1 FY27", et:"4:30 PM", px:169.8, chg:-4.5, ytd:-24.51, vol:51.6, sup:114.62, res:191.25, hi6:191.25, ath:false},
 {t:"DELL", c:"Dell Technologies", s:"Server Hardware", d:"2026-11-25", conf:false, fq:"Q3 FY27", et:"3:30 PM", px:524.14, chg:1.5, ytd:320.19, vol:76.9, sup:136.84, res:534.99, hi6:534.99, ath:false},
 {t:"ADBE", c:"Adobe", s:"Enterprise SaaS", d:"2026-09-10", conf:true, fq:"Q3 FY26", et:"", px:266.51, chg:-6.73, ytd:-23.85, vol:51.1, sup:190.12, res:294.53, hi6:294.53, ath:false},
