@@ -1,5 +1,5 @@
 window.EC = {
-  STAMP: "4 Sep 2026 close · synced 7 Sep 05:09 KUL",
+  STAMP: "4 Sep 2026 close · synced 7 Sep 06:07 KUL",
   DATA: [
 {t:"INTU", c:"Intuit", s:"Enterprise SaaS", d:"2026-11-19", conf:true, fq:"Q1 FY27", et:"4:30 PM", px:332.7, chg:-3.37, ytd:-49.3, vol:45.6, sup:251.72, res:477.4, hi6:479.6, ath:false},
 {t:"CRM", c:"Salesforce", s:"Enterprise SaaS", d:"2026-12-02", conf:false, fq:"Q2 FY27", et:"5:00 PM", px:259.23, chg:-1.97, ytd:-1.65, vol:58.3, sup:146.32, res:268.27, hi6:268.27, ath:false},
@@ -15,7 +15,7 @@ window.EC = {
 {t:"DELL", c:"Dell Technologies", s:"Server Hardware", d:"2026-11-25", conf:false, fq:"Q3 FY27", et:"3:30 PM", px:524.14, chg:1.5, ytd:320.19, vol:76.9, sup:136.84, res:534.99, hi6:534.99, ath:false},
 {t:"ADBE", c:"Adobe", s:"Enterprise SaaS", d:"2026-09-10", conf:true, fq:"Q3 FY26", et:"5:00 PM", px:266.51, chg:-6.73, ytd:-23.85, vol:51.1, sup:190.12, res:294.53, hi6:294.53, ath:false},
 {t:"MDB", c:"MongoDB", s:"Enterprise SaaS", d:"2026-12-01", conf:false, fq:"Q3 FY27", et:"5:00 PM", px:368.74, chg:-4.09, ytd:-12.14, vol:66.8, sup:215.68, res:473.1, hi6:473.1, ath:false},
-{t:"ORCL", c:"Oracle", s:"Server Hardware", d:"2026-09-09", conf:true, fq:"Q1 FY27", et:"12:00 PM", px:158.78, chg:3.08, ytd:-17.75, vol:57.3, sup:114.5, res:249.38, hi6:249.38, ath:false},
+{t:"ORCL", c:"Oracle", s:"Server Hardware", d:"2026-09-10", conf:true, fq:"Q1 FY27", et:"5:00 PM", px:158.78, chg:3.08, ytd:-17.75, vol:57.3, sup:114.5, res:249.38, hi6:249.38, ath:false},
 {t:"PATH", c:"UiPath", s:"Enterprise SaaS", d:"2026-12-01", conf:false, fq:"Q3 FY27", et:"", px:15.19, chg:-16.63, ytd:-7.32, vol:67.7, sup:9.2, res:18.83, hi6:18.83, ath:false},
 {t:"MU", c:"Micron Technology", s:"Semiconductor", d:"2026-09-30", conf:false, fq:"Q4 FY26", et:"4:30 PM", px:1016.59, chg:6.1, ytd:256.39, vol:97.1, sup:311.44, res:1254.81, hi6:1254.81, ath:false},
 {t:"TSM", c:"Taiwan Semiconductor", s:"Semiconductor", d:"2026-10-15", conf:false, fq:"Q3 2026", et:"", px:428.91, chg:2.85, ytd:41.86, vol:45.8, sup:313.08, res:479.0, hi6:479.0, ath:false},
