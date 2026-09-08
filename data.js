@@ -1,5 +1,5 @@
 window.EC = {
-  STAMP: "4 Sep 2026 close · synced 8 Sep 06:07 KUL",
+  STAMP: "4 Sep 2026 close · synced 8 Sep 21:09 KUL",
   DATA: [
 {t:"INTU", c:"Intuit", s:"Enterprise SaaS", d:"2026-11-19", conf:true, fq:"Q1 FY27", et:"4:30 PM", px:332.7, chg:-3.37, ytd:-49.3, vol:45.6, sup:251.72, res:477.4, hi6:479.6, ath:false},
 {t:"CRM", c:"Salesforce", s:"Enterprise SaaS", d:"2026-12-02", conf:false, fq:"Q2 FY27", et:"5:00 PM", px:259.23, chg:-1.97, ytd:-1.65, vol:58.3, sup:146.32, res:268.27, hi6:268.27, ath:false},
@@ -42,7 +42,7 @@ window.EC = {
 {t:"DDOG", c:"Datadog", s:"Enterprise SaaS", d:"2026-11-05", conf:false, fq:"Q3 2026", et:"", px:212.93, chg:-0.85, ytd:56.58, vol:67.2, sup:100.8, res:292.72, hi6:292.72, ath:false},
 {t:"HUBS", c:"HubSpot", s:"Enterprise SaaS", d:"2026-11-05", conf:false, fq:"Q3 2026", et:"", px:247.6, chg:-2.95, ytd:-38.3, vol:82.5, sup:169.63, res:295.32, hi6:296.92, ath:false},
 {t:"FIG", c:"Figma", s:"Enterprise SaaS", d:"2026-11-05", conf:false, fq:"Q2 2026", et:"", px:24.12, chg:-4.36, ytd:-35.46, vol:86.6, sup:16.6, res:31.22, hi6:31.22, ath:false},
-{t:"WDC", c:"Western Digital", s:"Semiconductor", d:"2026-10-22", conf:false, fq:"Q1 FY27", et:"", px:467.46, chg:5.86, ytd:171.55, vol:99.4, sup:237.94, res:799.87, hi6:799.87, ath:false},
+{t:"WDC", c:"Western Digital", s:"Semiconductor", d:"2026-10-22", conf:false, fq:"Q1 FY27", et:"", px:467.31, chg:5.86, ytd:171.55, vol:99.4, sup:237.86, res:799.61, hi6:799.61, ath:false},
 {t:"SNDK", c:"SanDisk", s:"Semiconductor", d:"2026-11-06", conf:false, fq:"Q4 FY26", et:"", px:1740.0, chg:11.9, ytd:633.0, vol:134.9, sup:517.0, res:2354.39, hi6:2354.39, ath:false}
   ]
 };
