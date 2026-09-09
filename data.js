@@ -1,5 +1,5 @@
 window.EC = {
-  STAMP: "8 Sep 2026 close · synced 9 Sep 05:09 KUL",
+  STAMP: "8 Sep 2026 close · synced 9 Sep 08:22 KUL",
   DATA: [
 {t:"INTU", c:"Intuit", s:"Enterprise SaaS", d:"2026-11-19", conf:true, fq:"Q1 FY27", et:"4:30 PM", px:318.93, chg:-4.14, ytd:-51.4, vol:46.1, sup:251.72, res:471.22, hi6:471.45, ath:false},
 {t:"CRM", c:"Salesforce", s:"Enterprise SaaS", d:"2026-12-02", conf:false, fq:"Q2 FY27", et:"5:00 PM", px:249.12, chg:-3.9, ytd:-5.48, vol:58.9, sup:146.32, res:268.27, hi6:268.27, ath:false},
@@ -17,7 +17,7 @@ window.EC = {
 {t:"MDB", c:"MongoDB", s:"Enterprise SaaS", d:"2026-12-01", conf:false, fq:"Q3 FY27", et:"5:00 PM", px:356.0, chg:-3.46, ytd:-15.18, vol:67.2, sup:215.68, res:473.1, hi6:473.1, ath:false},
 {t:"ORCL", c:"Oracle", s:"Server Hardware", d:"2026-09-10", conf:true, fq:"Q1 FY27", et:"5:00 PM", px:162.52, chg:2.36, ytd:-15.81, vol:57.5, sup:114.5, res:249.38, hi6:249.38, ath:false},
 {t:"PATH", c:"UiPath", s:"Enterprise SaaS", d:"2026-12-01", conf:false, fq:"Q3 FY27", et:"", px:14.01, chg:-7.77, ytd:-14.52, vol:69.8, sup:9.2, res:18.83, hi6:18.83, ath:false},
-{t:"MU", c:"Micron Technology", s:"Semiconductor", d:"2026-09-30", conf:false, fq:"Q4 FY26", et:"4:30 PM", px:1000.26, chg:-1.61, ytd:250.67, vol:95.4, sup:311.44, res:1254.81, hi6:1254.81, ath:false},
+{t:"MU", c:"Micron Technology", s:"Semiconductor", d:"2026-09-30", conf:true, fq:"Q4 FY26", et:"4:30 PM", px:1000.26, chg:-1.61, ytd:250.67, vol:95.4, sup:311.44, res:1254.81, hi6:1254.81, ath:false},
 {t:"TSM", c:"Taiwan Semiconductor", s:"Semiconductor", d:"2026-10-15", conf:false, fq:"Q3 2026", et:"", px:439.0, chg:2.35, ytd:45.19, vol:45.7, sup:313.08, res:479.0, hi6:479.0, ath:false},
 {t:"MMM", c:"3M", s:"Industrial", d:"2026-10-27", conf:false, fq:"Q3 2026", et:"", px:167.52, chg:-0.62, ytd:6.11, vol:24.5, sup:138.02, res:184.09, hi6:184.09, ath:false},
 {t:"TSLA", c:"Tesla", s:"Automotive", d:"2026-10-28", conf:false, fq:"Q3 2026", et:"", px:368.16, chg:3.98, ytd:-18.14, vol:58.7, sup:297.38, res:453.4, hi6:453.4, ath:false},
