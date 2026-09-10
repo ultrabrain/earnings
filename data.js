@@ -1,10 +1,10 @@
 window.EC = {
-  STAMP: "9 Sep 2026 close · synced 10 Sep 05:09 KUL",
+  STAMP: "9 Sep 2026 close · synced 10 Sep 21:09 KUL",
   DATA: [
 {t:"INTU", c:"Intuit", s:"Enterprise SaaS", d:"2026-11-19", conf:true, fq:"Q1 FY27", et:"4:30 PM", px:313.94, chg:-1.56, ytd:-52.16, vol:45.5, sup:251.72, res:471.22, hi6:471.22, ath:false},
 {t:"CRM", c:"Salesforce", s:"Enterprise SaaS", d:"2026-12-02", conf:false, fq:"Q2 FY27", et:"5:00 PM", px:244.16, chg:-1.99, ytd:-7.36, vol:58.4, sup:146.32, res:268.27, hi6:268.27, ath:false},
 {t:"OKTA", c:"Okta", s:"Cybersecurity", d:"2026-12-02", conf:false, fq:"Q4 FY27", et:"5:00 PM", px:172.74, chg:3.07, ytd:99.77, vol:70.4, sup:62.66, res:174.85, hi6:174.85, ath:false},
-{t:"NVDA", c:"NVIDIA", s:"Semiconductor", d:"2026-11-17", conf:true, fq:"Q3 FY27", et:"5:00 PM", px:223.67, chg:-0.91, ytd:20.08, vol:40.7, sup:164.08, res:236.26, hi6:236.26, ath:false},
+{t:"NVDA", c:"NVIDIA", s:"Semiconductor", d:"2026-11-17", conf:true, fq:"Q3 FY27", et:"5:00 PM", px:223.42, chg:-0.91, ytd:20.08, vol:40.7, sup:163.9, res:236.0, hi6:236.0, ath:false},
 {t:"CRWD", c:"CrowdStrike", s:"Cybersecurity", d:"2026-12-01", conf:false, fq:"Q2 FY27", et:"5:00 PM", px:207.8, chg:-1.06, ytd:77.32, vol:65.5, sup:90.45, res:233.88, hi6:233.88, ath:false},
 {t:"WDAY", c:"Workday", s:"Enterprise SaaS", d:"2026-11-19", conf:false, fq:"Q3 FY27", et:"4:30 PM", px:186.05, chg:-0.12, ytd:-13.38, vol:67.3, sup:110.36, res:227.49, hi6:227.49, ath:false},
 {t:"PANW", c:"Palo Alto Networks", s:"Cybersecurity", d:"2026-11-12", conf:false, fq:"Q1 FY27", et:"4:30 PM", px:335.1, chg:-0.56, ytd:81.92, vol:57.1, sup:143.5, res:398.88, hi6:398.88, ath:false},
