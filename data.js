@@ -7,7 +7,7 @@ window.EC = {
 {t:"NVDA", c:"NVIDIA", s:"Semiconductor", d:"2026-11-17", conf:true, fq:"Q3 FY27", et:"5:00 PM", px:210.96, chg:-3.36, ytd:13.38, vol:40.6, sup:163.9, res:236.0, hi6:236.0, ath:false},
 {t:"CRWD", c:"CrowdStrike", s:"Cybersecurity", d:"2026-12-01", conf:false, fq:"Q2 FY27", et:"5:00 PM", px:235.38, chg:13.85, ytd:100.85, vol:69.1, sup:90.45, res:239.37, hi6:239.37, ath:false},
 {t:"WDAY", c:"Workday", s:"Enterprise SaaS", d:"2026-11-19", conf:false, fq:"Q3 FY27", et:"4:30 PM", px:194.21, chg:4.58, ytd:-9.58, vol:66.6, sup:110.36, res:227.49, hi6:227.49, ath:false},
-{t:"PANW", c:"Palo Alto Networks", s:"Cybersecurity", d:"2026-11-12", conf:false, fq:"Q1 FY27", et:"4:30 PM", px:373.94, chg:13.09, ytd:103.01, vol:61.1, sup:143.5, res:398.88, hi6:398.88, ath:false},
+{t:"PANW", c:"Palo Alto Networks", s:"Cybersecurity", d:"2026-12-01", conf:false, fq:"Q1 FY27", et:"", px:373.94, chg:13.09, ytd:103.01, vol:61.1, sup:143.5, res:398.88, hi6:398.88, ath:false},
 {t:"HPE", c:"Hewlett Packard Ent.", s:"Server Hardware", d:"2026-11-17", conf:false, fq:"Q4 FY26", et:"4:30 PM", px:55.41, chg:-10.76, ytd:132.84, vol:66.2, sup:21.61, res:64.06, hi6:64.06, ath:false},
 {t:"SNOW", c:"Snowflake", s:"Enterprise SaaS", d:"2026-12-02", conf:false, fq:"Q3 FY27", et:"5:00 PM", px:332.35, chg:1.02, ytd:51.51, vol:49.5, sup:118.3, res:384.56, hi6:384.56, ath:false},
 {t:"AVGO", c:"Broadcom", s:"Semiconductor", d:"2026-12-10", conf:false, fq:"Q4 FY26", et:"", px:344.72, chg:-4.77, ytd:-0.03, vol:43.6, sup:289.5, res:494.22, hi6:494.22, ath:false},
