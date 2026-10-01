@@ -1,5 +1,5 @@
 window.EC = {
-  STAMP: "30 Sep 2026 close · synced 1 Oct 06:14 KUL",
+  STAMP: "30 Sep 2026 close · synced 1 Oct 21:10 KUL",
   DATA: [
 {t:"INTU", c:"Intuit", s:"Enterprise SaaS", d:"2026-11-20", conf:true, fq:"Q1 FY27", et:"4:30 PM", px:275.71, chg:2.87, ytd:-57.99, vol:46.3, sup:251.72, res:422.12, hi6:433.33, ath:false},
 {t:"CRM", c:"Salesforce", s:"Enterprise SaaS", d:"2026-12-03", conf:false, fq:"Q2 FY27", et:"", px:229.57, chg:1.89, ytd:-12.75, vol:57.4, sup:146.06, res:267.8, hi6:267.8, ath:false},
@@ -12,7 +12,7 @@ window.EC = {
 {t:"SNOW", c:"Snowflake", s:"Enterprise SaaS", d:"2026-12-03", conf:false, fq:"Q3 FY27", et:"5:00 PM", px:339.56, chg:2.8, ytd:54.8, vol:46.4, sup:118.3, res:384.56, hi6:384.56, ath:false},
 {t:"AVGO", c:"Broadcom", s:"Semiconductor", d:"2026-12-10", conf:false, fq:"Q4 FY26", et:"", px:351.19, chg:-1.1, ytd:2.03, vol:39.2, sup:309.23, res:493.32, hi6:493.32, ath:false},
 {t:"ZS", c:"Zscaler", s:"Cybersecurity", d:"2026-11-25", conf:false, fq:"Q1 FY27", et:"4:30 PM", px:199.42, chg:0.54, ytd:-11.34, vol:62.5, sup:114.62, res:216.97, hi6:216.97, ath:false},
-{t:"DELL", c:"Dell Technologies", s:"Server Hardware", d:"2026-11-28", conf:false, fq:"Q3 FY27", et:"", px:538.32, chg:-0.24, ytd:331.56, vol:80.3, sup:171.41, res:595.51, hi6:595.51, ath:false},
+{t:"DELL", c:"Dell Technologies", s:"Server Hardware", d:"2026-11-28", conf:false, fq:"Q3 FY27", et:"", px:537.95, chg:-0.3, ytd:331.26, vol:80.3, sup:171.41, res:595.51, hi6:595.51, ath:false},
 {t:"ADBE", c:"Adobe", s:"Enterprise SaaS", d:"2026-12-10", conf:false, fq:"Q4 FY26", et:"", px:239.94, chg:2.9, ytd:-31.44, vol:47.9, sup:190.12, res:294.53, hi6:294.53, ath:false},
 {t:"MDB", c:"MongoDB", s:"Enterprise SaaS", d:"2026-12-02", conf:false, fq:"Q3 FY27", et:"5:00 PM", px:348.61, chg:3.39, ytd:-16.94, vol:76.1, sup:215.68, res:473.1, hi6:473.1, ath:false},
 {t:"ORCL", c:"Oracle", s:"Server Hardware", d:"2026-12-11", conf:false, fq:"Q2 FY27", et:"", px:137.3, chg:-0.36, ytd:-28.88, vol:54.6, sup:114.5, res:249.38, hi6:249.38, ath:false},
