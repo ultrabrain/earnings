@@ -1,5 +1,5 @@
 window.EC = {
-  STAMP: "1 Oct 2026 close · synced 2 Oct 04:39 KUL",
+  STAMP: "1 Oct 2026 close · synced 2 Oct 05:00 KUL",
   DATA: [
 {t:"INTU", c:"Intuit", s:"Enterprise SaaS", d:"2026-11-20", conf:true, fq:"Q1 FY27", et:"4:30 PM", px:282.78, chg:2.56, ytd:-56.91, vol:46.2, sup:251.72, res:422.12, hi6:433.33, ath:false},
 {t:"CRM", c:"Salesforce", s:"Enterprise SaaS", d:"2026-12-03", conf:false, fq:"Q2 FY27", et:"", px:236.69, chg:3.1, ytd:-10.04, vol:57.5, sup:146.06, res:267.8, hi6:267.8, ath:false},
