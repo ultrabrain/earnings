@@ -1,5 +1,5 @@
 window.EC = {
-  STAMP: "1 Oct 2026 close · synced 2 Oct 06:17 KUL",
+  STAMP: "1 Oct 2026 close · synced 2 Oct 21:13 KUL",
   DATA: [
 {t:"INTU", c:"Intuit", s:"Enterprise SaaS", d:"2026-11-20", conf:true, fq:"Q1 FY27", et:"4:30 PM", px:282.78, chg:2.56, ytd:-56.91, vol:46.2, sup:251.72, res:422.12, hi6:433.33, ath:false}
 {t:"CRM", c:"Salesforce", s:"Enterprise SaaS", d:"2026-12-03", conf:false, fq:"Q2 FY27", et:"", px:236.69, chg:3.1, ytd:-10.04, vol:57.5, sup:146.06, res:267.8, hi6:267.8, ath:false}
@@ -22,14 +22,14 @@ window.EC = {
 {t:"MMM", c:"3M", s:"Industrial", d:"2026-10-20", conf:false, fq:"Q3 2026", et:"", px:163.02, chg:-0.69, ytd:3.26, vol:24.9, sup:140.05, res:184.09, hi6:184.09, ath:false}
 {t:"TSLA", c:"Tesla", s:"Automotive", d:"2026-10-21", conf:false, fq:"Q3 2026", et:"", px:354.11, chg:-0.2, ytd:-21.26, vol:51.8, sup:297.38, res:453.4, hi6:453.4, ath:false}
 {t:"IBM", c:"IBM", s:"Server Hardware", d:"2026-10-22", conf:false, fq:"Q3 2026", et:"", px:225.62, chg:2.59, ytd:-22.28, vol:67.0, sup:197.77, res:330.09, hi6:330.09, ath:false}
-{t:"INTC", c:"Intel", s:"Semiconductor", d:"2026-10-23", conf:false, fq:"Q3 2026", et:"", px:120.03, chg:-0.17, ytd:225.28, vol:72.3, sup:49.87, res:142.35, hi6:142.35, ath:false}
+{t:"INTC", c:"Intel", s:"Semiconductor", d:"2026-10-23", conf:false, fq:"Q3 2026", et:"", px:120.0, chg:-0.19, ytd:225.2, vol:72.3, sup:49.87, res:142.35, hi6:142.35, ath:false}
 {t:"STX", c:"Seagate Technology", s:"Semiconductor", d:"2026-10-28", conf:false, fq:"Q1 FY27", et:"", px:945.57, chg:2.52, ytd:244.48, vol:72.6, sup:444.33, res:1143.27, hi6:1143.27, ath:false}
 {t:"NOW", c:"ServiceNow", s:"Enterprise SaaS", d:"2026-10-29", conf:false, fq:"Q3 2026", et:"", px:137.76, chg:2.8, ytd:-10.07, vol:56.0, sup:81.24, res:149.6, hi6:149.6, ath:false}
 {t:"MSFT", c:"Microsoft", s:"Hyperscaler", d:"2026-10-28", conf:true, fq:"Q1 FY27", et:"", px:512.8, chg:-0.02, ytd:6.71, vol:37.8, sup:348.54, res:522.85, hi6:522.85, ath:false}
 {t:"GOOG", c:"Alphabet", s:"Hyperscaler", d:"2026-10-27", conf:true, fq:"Q3 2026", et:"", px:334.93, chg:-1.71, ytd:6.94, vol:33.5, sup:293.42, res:403.96, hi6:403.96, ath:false}
 {t:"META", c:"Meta Platforms", s:"Hyperscaler", d:"2026-10-29", conf:true, fq:"Q3 2026", et:"", px:725.93, chg:0.1, ytd:10.26, vol:47.7, sup:524.08, res:779.82, hi6:779.82, ath:false}
 {t:"TEAM", c:"Atlassian", s:"Enterprise SaaS", d:"2026-10-30", conf:false, fq:"Q1 FY27", et:"", px:189.91, chg:5.92, ytd:17.13, vol:88.2, sup:56.01, res:200.0, hi6:200.0, ath:false}
-{t:"QCOM", c:"Qualcomm", s:"Semiconductor", d:"2026-11-05", conf:false, fq:"Q4 FY26", et:"", px:182.06, chg:-1.08, ytd:8.1, vol:47.0, sup:120.88, res:257.56, hi6:257.56, ath:false}
+{t:"QCOM", c:"Qualcomm", s:"Semiconductor", d:"2026-11-05", conf:false, fq:"Q4 FY26", et:"", px:182.09, chg:-1.06, ytd:8.12, vol:47.0, sup:120.88, res:257.56, hi6:257.56, ath:false}
 {t:"NET", c:"Cloudflare", s:"Cybersecurity", d:"2026-10-30", conf:false, fq:"Q3 2026", et:"", px:351.0, chg:1.07, ytd:78.04, vol:57.8, sup:164.05, res:367.43, hi6:367.43, ath:false}
 {t:"AAPL", c:"Apple", s:"Hyperscaler", d:"2026-10-29", conf:true, fq:"Q1 FY27", et:"5:00 PM", px:330.32, chg:-0.81, ytd:21.83, vol:27.0, sup:245.26, res:345.34, hi6:345.34, ath:false}
 {t:"AMZN", c:"Amazon", s:"Hyperscaler", d:"2026-10-29", conf:true, fq:"Q3 2026", et:"", px:248.23, chg:-0.37, ytd:7.54, vol:39.5, sup:209.07, res:287.2, hi6:287.2, ath:false}
