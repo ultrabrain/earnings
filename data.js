@@ -1,5 +1,5 @@
 window.EC = {
-  STAMP: "13 Oct 2026 close · synced 14 Oct 05:09 KUL",
+  STAMP: "13 Oct 2026 close · synced 14 Oct 21:10 KUL",
   DATA: [
 {t:"INTU", c:"Intuit", s:"Enterprise SaaS", d:"2026-11-20", conf:false, fq:"Q1 FY27", et:"4:30 PM", px:301.45, chg:-1.48, ytd:-53.85, vol:44.5, sup:250.56, res:420.16, hi6:420.16, ath:false},
 {t:"CRM", c:"Salesforce", s:"Enterprise SaaS", d:"2026-12-02", conf:false, fq:"Q2 FY27", et:"5:00 PM", px:238.01, chg:1.75, ytd:-9.54, vol:56.7, sup:146.06, res:267.8, hi6:267.8, ath:false},
@@ -17,7 +17,7 @@ window.EC = {
 {t:"MDB", c:"MongoDB", s:"Enterprise SaaS", d:"2026-12-02", conf:false, fq:"Q3 FY27", et:"5:00 PM", px:373.07, chg:-2.16, ytd:-11.11, vol:75.4, sup:240.62, res:473.1, hi6:473.1, ath:false},
 {t:"ORCL", c:"Oracle", s:"Server Hardware", d:"2026-12-10", conf:false, fq:"Q2 FY27", et:"5:00 PM", px:143.2, chg:4.23, ytd:-25.55, vol:54.7, sup:114.08, res:248.46, hi6:248.46, ath:false},
 {t:"PATH", c:"UiPath", s:"Enterprise SaaS", d:"2026-12-03", conf:false, fq:"Q3 FY27", et:"5:00 PM", px:13.25, chg:-0.53, ytd:-19.16, vol:70.2, sup:9.2, res:18.83, hi6:18.83, ath:false},
-{t:"MU", c:"Micron Technology", s:"Semiconductor", d:"2026-12-23", conf:true, fq:"Q4 FY26", et:"3:00 PM", px:953.19, chg:-3.62, ytd:234.16, vol:72.3, sup:435.83, res:1254.81, hi6:1254.81, ath:false},
+{t:"MU", c:"Micron Technology", s:"Semiconductor", d:"2026-12-23", conf:true, fq:"Q4 FY26", et:"3:00 PM", px:953.04, chg:-3.62, ytd:234.16, vol:72.3, sup:435.76, res:1254.61, hi6:1254.61, ath:false},
 {t:"TSM", c:"Taiwan Semiconductor", s:"Semiconductor", d:"2026-10-15", conf:true, fq:"Q3 2026", et:"2:00 AM", px:445.12, chg:0.17, ytd:47.61, vol:33.6, sup:362.45, res:487.47, hi6:487.47, ath:false},
 {t:"MMM", c:"3M", s:"Industrial", d:"2026-10-20", conf:true, fq:"Q3 2026", et:"10:00 AM", px:162.77, chg:1.17, ytd:3.1, vol:24.5, sup:140.05, res:184.09, hi6:184.09, ath:false},
 {t:"TSLA", c:"Tesla", s:"Automotive", d:"2026-10-21", conf:true, fq:"Q3 2026", et:"5:30 PM", px:375.23, chg:-0.74, ytd:-16.56, vol:49.8, sup:297.38, res:453.4, hi6:453.4, ath:false},
