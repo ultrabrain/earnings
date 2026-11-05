@@ -1,12 +1,12 @@
 window.EC = {
-  STAMP: "4 Nov 2026 close · synced 5 Nov 21:41 KUL",
+  STAMP: "4 Nov 2026 close · synced 5 Nov 22:10 KUL",
   DATA: [
 {t:"INTU", c:"Intuit", s:"Enterprise SaaS", d:"2026-12-17", conf:false, fq:"Q1 FY27", et:"4:30 PM", px:356.64, chg:3.46, ytd:-45.4, vol:44.2, sup:250.56, res:420.16, hi6:420.16, ath:false},
 {t:"CRM", c:"Salesforce", s:"Enterprise SaaS", d:"2026-12-02", conf:false, fq:"Q2 FY27", et:"5:00 PM", px:227.11, chg:2.21, ytd:-13.68, vol:53.6, sup:146.06, res:267.8, hi6:267.8, ath:false},
 {t:"OKTA", c:"Okta", s:"Cybersecurity", d:"2026-12-01", conf:true, fq:"Q4 FY27", et:"5:00 PM", px:191.05, chg:0.72, ytd:120.94, vol:80.9, sup:77.45, res:235.0, hi6:235.0, ath:false},
 {t:"NVDA", c:"NVIDIA", s:"Semiconductor", d:"2026-11-17", conf:true, fq:"Q3 FY27", et:"5:00 PM", px:200.13, chg:-3.17, ytd:7.56, vol:35.3, sup:189.59, res:243.37, hi6:243.37, ath:false},
 {t:"CRWD", c:"CrowdStrike", s:"Cybersecurity", d:"2026-12-01", conf:false, fq:"Q2 FY27", et:"5:00 PM", px:241.0, chg:-1.5, ytd:105.65, vol:69.6, sup:130.5, res:286.99, hi6:286.99, ath:false},
-{t:"WDAY", c:"Workday", s:"Enterprise SaaS", d:"2026-11-24", conf:false, fq:"Q3 FY27", et:"4:30 PM", px:203.21, chg:2.66, ytd:-5.39, vol:52.3, sup:111.5, res:227.49, hi6:227.49, ath:false},
+{t:"WDAY", c:"Workday", s:"Enterprise SaaS", d:"2026-11-24", conf:false, fq:"Q3 FY27", et:"4:30 PM", px:201.84, chg:1.97, ytd:-6.02, vol:52.2, sup:111.5, res:227.49, hi6:227.49, ath:false},
 {t:"PANW", c:"Palo Alto Networks", s:"Cybersecurity", d:"2026-11-12", conf:false, fq:"Q1 FY27", et:"5:00 PM", px:348.04, chg:-0.62, ytd:88.95, vol:61.1, sup:205.65, res:432.32, hi6:432.32, ath:false},
 {t:"HPE", c:"Hewlett Packard Ent.", s:"Server Hardware", d:"2026-11-17", conf:false, fq:"Q4 FY26", et:"4:30 PM", px:50.09, chg:-5.67, ytd:111.02, vol:69.3, sup:29.33, res:73.56, hi6:73.56, ath:false},
 {t:"SNOW", c:"Snowflake", s:"Enterprise SaaS", d:"2026-12-02", conf:false, fq:"Q3 FY27", et:"5:00 PM", px:290.6, chg:-1.5, ytd:32.48, vol:54.9, sup:146.05, res:384.56, hi6:384.56, ath:false},
