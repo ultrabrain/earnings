@@ -1,5 +1,5 @@
 window.EC = {
-  STAMP: "13 Nov 2026 close · synced 14 Nov 21:51 KUL",
+  STAMP: "13 Nov 2026 close · synced 14 Nov 22:10 KUL",
   DATA: [
 {t:"INTU", c:"Intuit", s:"Enterprise SaaS", d:"2026-12-17", conf:false, fq:"Q1 FY27", et:"4:30 PM", px:341.7, chg:0.45, ytd:-47.69, vol:41.4, sup:250.56, res:420.16, hi6:420.16, ath:false},
 {t:"CRM", c:"Salesforce", s:"Enterprise SaaS", d:"2026-12-02", conf:false, fq:"Q2 FY27", et:"5:00 PM", px:217.84, chg:0.12, ytd:-17.2, vol:52.8, sup:146.06, res:267.8, hi6:267.8, ath:false},
@@ -29,7 +29,7 @@ window.EC = {
 {t:"GOOG", c:"Alphabet", s:"Hyperscaler", d:"2027-01-26", conf:false, fq:"Q4 2026", et:"4:00 PM", px:292.52, chg:-0.96, ytd:-6.6, vol:34.2, sup:272.0, res:403.96, hi6:403.96, ath:false},
 {t:"META", c:"Meta Platforms", s:"Hyperscaler", d:"2027-01-29", conf:false, fq:"Q4 2026", et:"4:05 PM", px:641.69, chg:2.9, ytd:-2.54, vol:44.2, sup:524.08, res:779.82, hi6:779.82, ath:false},
 {t:"TEAM", c:"Atlassian", s:"Enterprise SaaS", d:"2027-02-04", conf:false, fq:"Q2 FY27", et:"5:00 PM", px:149.99, chg:-1.51, ytd:-7.49, vol:64.0, sup:74.41, res:229.96, hi6:229.96, ath:false},
-{t:"QCOM", c:"Qualcomm", s:"Semiconductor", d:"2027-02-03", conf:false, fq:"Q1 FY27", et:"5:00 PM", px:172.71, chg:-2.5, ytd:2.55, vol:52.2, sup:142.12, res:257.56, hi6:257.56, ath:false},
+{t:"QCOM", c:"Qualcomm", s:"Semiconductor", d:"2027-02-03", conf:false, fq:"Q1 FY27", et:"5:00 PM", px:172.47, chg:-2.64, ytd:2.41, vol:52.3, sup:142.12, res:257.56, hi6:257.56, ath:false},
 {t:"NET", c:"Cloudflare", s:"Cybersecurity", d:"2027-02-04", conf:false, fq:"Q4 2026", et:"5:00 PM", px:305.81, chg:-3.98, ytd:55.12, vol:70.1, sup:192.8, res:370.35, hi6:370.35, ath:false},
 {t:"AAPL", c:"Apple", s:"Hyperscaler", d:"2027-01-27", conf:false, fq:"Q1 FY27", et:"4:30 PM", px:356.27, chg:0.39, ytd:31.51, vol:22.3, sup:273.31, res:360.83, hi6:360.83, ath:false},
 {t:"AMZN", c:"Amazon", s:"Hyperscaler", d:"2027-02-03", conf:false, fq:"Q4 2026", et:"4:30 PM", px:266.66, chg:-0.29, ytd:15.53, vol:31.3, sup:225.55, res:287.2, hi6:287.2, ath:false},
